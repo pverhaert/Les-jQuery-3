@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="nl"><!-- InstanceBegin template="/Templates/jQuery.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- InstanceBeginEditable name="doctitle" -->
+    <title>Reisvergoeding</title>
+    <!-- InstanceEndEditable -->
+    <link href="../css/style.css" rel="stylesheet">
+    <!-- InstanceBeginEditable name="head" -->
+    <style>
+        #bestemming {
+            width: 300px;
+        }
+
+        #resultaat {
+            display: none;
+        }
+
+        #resultaat div {
+            display: flex;
+            justify-content: space-between;
+            border-top: dotted 1px grey;
+            padding: 10px 0;
+        }
+
+        #resultaat div:first-child {
+            border-top: none;
+        }
+
+        .subDatum, .subKm, .subTotaal {
+            width: 122px;
+        }
+
+        .subBestemming {
+            width: 400px;
+        }
+
+        .subKm {
+            text-align: right;
+        }
+
+        .delete {
+            cursor: pointer;
+        }
+
+        .hide {
+            display: none !important;
+        }
+    </style>
+    <script>
+        $(function () {
+            var kmPrijs = 0.25; 	// Prijs per km
+            var aantalItems = 5;	// Maximum aantal items
+            //$('.temp').removeClass('hide');  // Verwijder tijdens het ontwerp tijdelijk de class hide op het sjabloon
+            eindtotaal();
+
+            // Item toevoegen
+            $('#inputForm').submit(function (e) {
+                e.preventDefault();
+                //
+                eindtotaal();
+            });
+
+            // Item wissen
+            $('.wisItem').click(function (e) {
+                //
+            });
+
+            // Bereken eindtotaal
+            function eindtotaal() {
+                var totaal = 0;
+                //
+
+                // verberg div indien leeg
+
+                // Indien meer dan aantalItems, verberg dan het formulier
+
+            }
+        });
+    </script>
+    <!-- InstanceEndEditable -->
+</head>
+<body>
+<div class="background-dark">
+    <header class="container">
+        <nav id="mainNav">
+            <ul>
+                <li><a href="../../index.html"><i class="fa fa-home"></i> Homepage</a></li>
+                <li><a href="../../opdrachten/index.html"><i class="fa fa-th-list"></i> Opdrachten</a></li>
+                <li><a href="https://oscarotero.com/jquery/"><i class="fa fa-eye"></i> Cheat sheet</a></li>
+            </ul>
+            <ul>
+                <li><a href="#!"></a></li>
+            </ul>
+        </nav>
+    </header>
+</div>
+<main class="container"> <!-- InstanceBeginEditable name="data" -->
+    <h1>Reisvergoeding</h1>
+    <ul>
+        <li>Bereken <a href="http://goo.gl/"></a>de reisvergoeding met behulp van onderstaand formulier.<br>
+            De basisprijs per km staat als variabele
+            <b>kmPrijs</b>.
+        </li>
+        <li>De section-tag <b>#resultaat</b> bevat één div-tag als sjabloon. Dit sjabloon bevat vijf span-tags en is
+            onzichtbaar (class hide).
+        </li>
+        <li>Alle prijzen worden afgerond op twee cijfers na de komma.</li>
+    </ul>
+    <ol>
+        <li>Telkens je op &quot;Voeg toe&quot; klikt, wordt het sjabloon gedupliceerd en komen de gegevens in de
+            verschillende span-tags.<br>
+            Kopieer de datum uit het formulier naar de span-tag <b>.subDatum</b>.<br>
+            Kopieer de bestemming uit het formulier naar de span-tag <b>.subBestemming</b>.<br>
+            Kopieer het aantal km uit het formulier en pas de tekst aan (? km x ??? =). Plaats deze tekst in de
+            span-tag<b> .subKm</b>.<br>
+            Bereken het subtotaal (aantal km x prijs/km) en plaats het resultaat in de span-tag<b> .subTotaal</b>.
+        </li>
+        <li>Klik op het <b>min-icoon</b> (laatste span-tag binnen de div-tag) om <b>deze lijn</b> te wissen.</li>
+        <li>Bereken het eindtotaal en plaats dit in desection-tag <b>#totaal</b>.</li>
+        <li>Beperk het aantal items tot de waarde in de variabele <b>aantalItems</b>. Vanaf x items verdwijnt het
+            formulier.
+        </li>
+    </ol>
+    <h2>Reisvergoeding</h2>
+    <div id="totaal" class="message-bar background-success">Totaal: € 0</div>
+    <form id="inputForm" action="08_reisvergoeding.html" method="post">
+        <table id="kostenTabel" class="table">
+            <thead>
+            <tr>
+                <th>Datum:</th>
+                <th>Bestemming:</th>
+                <th>Km:</th>
+                <th>&nbsp;</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <div class="input">
+                        <input type="date" id="datum" required>
+                    </div>
+                </td>
+                <td>
+                    <div class="input">
+                        <input type="text" id="bestemming" required>
+                    </div>
+                </td>
+                <td>
+                    <div class="input">
+                        <input type="number" id="km" required>
+                    </div>
+                </td>
+                <td>
+                    <button type="submit" class="button" id="voegToe">Voeg toe</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+    <div id="resultaat" class="message-bar background-gray-light">
+        <div class="temp hide">
+            <span class="subDatum">datum</span>
+            <span class="subBestemming">bestemming</span>
+            <span class="subKm">? km x ?? =</span>
+            <span class="subTotaal">0</span>
+            <span class="delete" title="Wis deze lijn"><i class="fa fa-minus-square text-error"></i></span>
+        </div>
+    </div>
+    <!-- InstanceEndEditable -->
+</main>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/les.js"></script>
+<!-- InstanceBeginEditable name="script" -->
+<script>
+    $(function () {
+        var kmPrijs = 0.25; 	// Prijs per km
+        var aantalItems = 5;	// Maximum aantal items
+        //$('.temp').removeClass('hide');  // Verwijder tijdens het ontwerp tijdelijk de class hide op het sjabloon
+        eindtotaal();
+
+        // Item toevoegen
+        $('#inputForm').submit(function (e) {
+            e.preventDefault();
+            //
+            eindtotaal();
+        });
+
+        // Item wissen
+        $('.delete').click(function (e) {
+            //
+        });
+
+        // Bereken eindtotaal
+        function eindtotaal() {
+            var totaal = 0;
+            //
+
+            // verberg div indien leeg
+
+            // Indien meer dan aantalItems, verberg dan het formulier
+
+        }
+    });
+</script>
+<!-- InstanceEndEditable -->
+</body>
+<!-- InstanceEnd --></html>

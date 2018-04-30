@@ -1,0 +1,37 @@
+@mixin gradient($color: $brand-dark) {
+  margin: $base-pading 0;
+  min-height: 1rem;
+  border: 1px solid $gray;
+  border-radius: $radius;
+  background-color: lighten($color, 10%);
+  background-image: linear-gradient(-45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-size: 1rem 1rem;
+  text-align: center;
+  animation: slide 20s linear infinite;
+  color: white;
+}
+
+@keyframes slide {
+  from { background-position: 0 0; }
+  to { background-position: 50rem 0; }
+}
+
+.preloader {
+  @include gradient();
+}
+
+.preloader-success {
+  @include gradient($color-success);
+}
+
+.preloader-info {
+  @include gradient($color-info);
+}
+
+.preloader-warning {
+  @include gradient($color-warning);
+}
+
+.preloader-error {
+  @include gradient($color-error);
+}

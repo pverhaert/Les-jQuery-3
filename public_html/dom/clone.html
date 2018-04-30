@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="nl"><!-- InstanceBegin template="/Templates/jQuery.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- InstanceBeginEditable name="doctitle" -->
+    <title>Elementen klonen</title>
+    <!-- InstanceEndEditable -->
+    <link href="../css/style.css" rel="stylesheet">
+    <!-- InstanceBeginEditable name="head" -->
+    <style>
+        .temp {
+            color: orange;
+        }
+    </style>
+    <!-- InstanceEndEditable -->
+</head>
+<body>
+<div class="background-dark">
+    <header class="container">
+        <nav id="mainNav">
+            <ul>
+                <li><a href="../../index.html"><i class="fa fa-home"></i> Homepage</a></li>
+                <li><a href="../../opdrachten/index.html"><i class="fa fa-th-list"></i> Opdrachten</a></li>
+                <li><a href="https://oscarotero.com/jquery/"><i class="fa fa-eye"></i> Cheat sheet</a></li>
+            </ul>
+            <ul>
+                <li><a href="#!"></a></li>
+            </ul>
+        </nav>
+    </header>
+</div>
+<main class="container"> <!-- InstanceBeginEditable name="data" -->
+    <h1>Elementen klonen</h1>
+    <section id="sect1">
+        <h2>clone() methode</h2>
+        <p>
+            <input class="button" type="button" id="clone" value="nieuwe tijd">
+        </p>
+        <ul>
+            <li class="temp">Het is nu: <span class="tijd"></span></li>
+        </ul>
+    </section>
+
+    <!-- InstanceEndEditable -->
+</main>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/les.js"></script>
+<!-- InstanceBeginEditable name="script" -->
+<script>
+    $(function () {
+        var uur = tijd();
+        $('.tijd').text(uur);
+
+        // Dupliceer li-tag en verwijder .temp
+        $('#clone').click(function () {
+            uur = tijd();
+            $('main li.temp').clone().removeClass('temp').insertBefore('main li:first');
+            // $('main li.temp').clone(true).removeClass('temp').insertBefore('main li:first');
+            // $('main li.temp').clone(true).removeClass('temp').find('.tijd').text(uur).end().insertBefore('main li:first');
+        });
+
+        // Klik op een li-tag
+        $('main li').click(function () {
+            alert($(this).text());
+        });
+
+        // Bereken huidige tijd
+        function tijd() {
+            d = new Date();
+            uur = d.getHours() + 'h ' + d.getMinutes() + 'min ' + d.getSeconds() + 'sec';
+            return uur;
+        }
+    });
+</script>
+<!-- InstanceEndEditable -->
+</body>
+<!-- InstanceEnd --></html>

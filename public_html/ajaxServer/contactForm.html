@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="nl"><!-- InstanceBegin template="/Templates/jQuery.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- InstanceBeginEditable name="doctitle" -->
+    <title>jQuery: Contactformulier</title>
+    <!-- InstanceEndEditable -->
+    <link href="../css/style.css" rel="stylesheet">
+    <!-- InstanceBeginEditable name="head" -->
+    <style>
+        .foto {
+            float: right;
+            margin: 0 10px;
+            border: solid 1px lightGrey;
+            padding: 3px;
+            box-shadow: 3px 3px 3px rgba(51, 51, 51, .7);
+        }
+
+        label {
+            width: 100px;
+        }
+    </style>
+    <!-- InstanceEndEditable -->
+</head>
+<body>
+<div class="background-dark">
+    <header class="container">
+        <nav id="mainNav">
+            <ul>
+                <li><a href="../../index.html"><i class="fa fa-home"></i> Homepage</a></li>
+                <li><a href="../../opdrachten/index.html"><i class="fa fa-th-list"></i> Opdrachten</a></li>
+                <li><a href="https://oscarotero.com/jquery/"><i class="fa fa-eye"></i> Cheat sheet</a></li>
+            </ul>
+            <ul>
+                <li><a href="#!"></a></li>
+            </ul>
+        </nav>
+    </header>
+</div>
+<main class="container"> <!-- InstanceBeginEditable name="data" -->
+    <h1>Contactformulier<span></span></h1>
+    <section>
+        <form name="form" id="form" method="post" action="contactSend.php">
+            <div>
+                <label for="naam">Naam:</label>
+                <div class="input">
+                    <input type="text" name="naam" id="naam" placeholder="Naam (verplicht)" required value="demo">
+                </div>
+            </div>
+            <div>
+                <label for="email">E-mail:</label>
+
+                <div class="input">
+                    <input type="email" name="email" id="email" placeholder="E-mail (verplicht)" required
+                           value="demo@example.com">
+                </div>
+            </div>
+            <div>
+                <label for="onderwerp">Onderwerp:</label>
+                <div class="input">
+                    <input type="text" name="onderwerp" id="onderwerp" placeholder="Onderwerp (verplicht)" required>
+                </div>
+            </div>
+            <div>
+                <label for="bericht">Bericht:</label>
+                <textarea class="textarea" name="bericht" id="bericht" required>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </textarea>
+            </div>
+            <div>
+                <label for="submit">&nbsp;</label>
+                <input class="button" type="submit" name="submit" id="submit" value="Verzenden">
+            </div>
+        </form>
+    </section>
+    <section id="detail"></section>
+    <!-- InstanceEndEditable -->
+</main>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/les.js"></script>
+<!-- InstanceBeginEditable name="script" -->
+<script>
+    $(function () {
+        // Wijzig selector van $('#_') naar $('#form')
+        $('#_').submit(function (e) {
+            e.preventDefault();
+            var str = $(this).serialize();
+            $(this).hide();
+            $.post('contactSend.php', str, function (data) {
+                $('#detail').html($(data).find('#message'));
+            }, 'html');
+        });
+    });
+</script>
+<!-- InstanceEndEditable -->
+</body>
+<!-- InstanceEnd --></html>

@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="nl"><!-- InstanceBegin template="/Templates/jQuery.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- InstanceBeginEditable name="doctitle" -->
+    <title>Wunderground weather</title>
+    <!-- InstanceEndEditable -->
+    <link href="../css/style.css" rel="stylesheet">
+    <!-- InstanceBeginEditable name="head" -->
+    <style>
+        .card-success img {
+            float: right;
+        }
+    </style>
+    <!-- InstanceEndEditable -->
+</head>
+<body>
+<div class="background-dark">
+    <header class="container">
+        <nav id="mainNav">
+            <ul>
+                <li><a href="../../index.html"><i class="fa fa-home"></i> Homepage</a></li>
+                <li><a href="../../opdrachten/index.html"><i class="fa fa-th-list"></i> Opdrachten</a></li>
+                <li><a href="https://oscarotero.com/jquery/"><i class="fa fa-eye"></i> Cheat sheet</a></li>
+            </ul>
+            <ul>
+                <li><a href="#!"></a></li>
+            </ul>
+        </nav>
+    </header>
+</div>
+<main class="container"> <!-- InstanceBeginEditable name="data" -->
+    <h1>Wunderground weather <span>(https://www.wunderground.com/)</span></h1>
+    <div class="message-bar background-error">
+        <p>LET OP: deze oefening kan je enkel lokaal testen <b>(http://localhost/)</b> of extern via het HTTPS-protocol
+            (<b>https://</b>).</p>
+    </div>
+    <ul>
+        <li>Wunderground API: <a href="https://www.wunderground.com/weather/api/d/docs?d=data/index">https://www.wunderground.com/weather/api/d/docs?d=data/index</a>
+        </li>
+        <li>Bepaal uw coördinaten aan de hand van <a href="https://www.w3schools.com/html5/html5_geolocation.asp">HTML5
+            geolocation API</a>. (Dode staat reeds op de pagina.)<br>
+            Toon de coördinaten in de span-tag <b>#latLng</b>.
+        </li>
+        <li>Haal de gegevens in JSONP op via de URL:<br>
+            <a href="https://api.wunderground.com/api/291369cc63912a1e/forecast/geolookup/lang:NL/q/xxx,yyy.json">https://api.wunderground.com/api/291369cc63912a1e<b>/forecast/geolookup</b>/lang:NL/q/xxx,yyy.json</a><br>
+            Met <b>xxx</b> de waarde van <b>lat</b> en <b>yyy</b> de waarde van <b>lng</b>.<br>
+            Onderstaande link toont het weerbericht voor Bobbejaanland (lat = 51.20164, lng = 4.9025).<br>
+            <a href="https://api.wunderground.com/api/291369cc63912a1e/forecast/geolookup/lang:NL/q/51.20164,4.9025.json">https://api.wunderground.com/api/291369cc63912a1e/forecast/geolookup/lang:NL/q/51.20164,4.9025.json</a>
+        </li>
+        <li>Bekijk het resultaat van de JSON-requert en toon volgende gegevens:<br>
+            Toon gemeente en land in de <b>h2-tag #locatie</b>.
+        </li>
+        <li>Plaats het weer elke dag (dag, icoon en omschrijving) in een<b> card</b> met volgende structuur:
+            <pre>
+&lt;div class="col-sm-6 dag"&gt;
+    &lt;div class="card-success"&gt;
+        &lt;h3 class="card-header"&gt; dag &lt;/h3&gt;
+        &lt;div class="card-body"&gt;
+            &lt; image met icoon  &gt;
+            &lt;p&gt; omschrijving &lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+        </li>
+        <li>Maak alle div-tags even hoog zodat ze mooie formatie vormen.</li>
+        <li><b>LET OP</b>: eindig de URL in $.getJSON() met <b>callback=?</b><br>
+        </li>
+    </ul>
+    <h1>Weersverwachting <span id="latLng">???</span></h1>
+    <h2 id="locatie">Locatie</h2>
+    <div id="weer" class="row"></div>
+    <!-- InstanceEndEditable -->
+</main>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/les.js"></script>
+<!-- InstanceBeginEditable name="script" -->
+<script>
+    $(function () {
+        // Bepaal geolocatie met de HTML5 Geolocation API
+        var lat = 50.5;
+        var lng = 4.5;
+        var hoogste = 0;
+
+        function geolocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    lat = position.coords.latitude;
+                    lng = position.coords.longitude;
+                    $('#latLng').text('Lat: ' + lat + ' -  Lng: ' + lng);
+                    verwerkData();
+                });
+            } else {
+                $('#latLng').text('Geolocation wordt door deze browser niet ondersteund.');
+            }
+        }
+
+        geolocation();
+
+        // Verwerk gegevens
+        function verwerkData() {
+            $.getJSON('https://api.wunderground.com/api/291369cc63912a1e/forecast/geolookup/lang:NL/q/' + lat + ',' + lng + '.json?callback=?', function (data) {
+                //
+            }).done(function () {
+                eqHeight();
+            }).fail(function (error) {
+                console.log(error);
+                alert(JSON.stringify(error));
+            });
+        }
+
+        $(window).resize(function () {
+            eqHeight();
+        });
+
+        // Maak alle cards even groot
+        function eqHeight() {
+            $('.dag').height('auto');
+            $('.dag').each(function () {
+                $(this).height() > hoogste ? hoogste = $(this).height() : '';
+            });
+            $('.dag').height(hoogste);
+        }
+    });
+</script>
+<!-- InstanceEndEditable -->
+</body>
+<!-- InstanceEnd --></html>

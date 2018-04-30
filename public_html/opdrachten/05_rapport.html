@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="nl"><!-- InstanceBegin template="/Templates/jQuery.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- InstanceBeginEditable name="doctitle" -->
+    <title>Rapport</title>
+    <!-- InstanceEndEditable -->
+    <link href="../css/style.css" rel="stylesheet">
+    <!-- InstanceBeginEditable name="head" -->
+    <style>
+        .naam {
+            font-weight: bold;
+            color: darkGreen;
+            text-align: right;
+        }
+
+        .red {
+            background-color: #F88174;
+        }
+
+        .orange {
+            background-color: #FFCF9F;
+        }
+
+        .score {
+            font-weight: bold;
+            color: white;
+            background-color: grey;
+        }
+
+        #rapport {
+            border: solid 1px grey;
+            border-collapse: collapse;
+        }
+
+        #rapport td {
+            padding: 10px;
+            border-right: dotted 1px grey;
+        }
+
+        #rapport tbody tr {
+            border-top: solid 1px grey;
+        }
+
+        #rapport tbody td {
+            text-align: center;
+        }
+
+        #rapport thead {
+            background-color: grey;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        #rapport th {
+            transform: rotate(90deg);
+            line-height: 4em;
+        }
+    </style>
+    <!-- InstanceEndEditable -->
+</head>
+<body>
+<div class="background-dark">
+    <header class="container">
+        <nav id="mainNav">
+            <ul>
+                <li><a href="../../index.html"><i class="fa fa-home"></i> Homepage</a></li>
+                <li><a href="../../opdrachten/index.html"><i class="fa fa-th-list"></i> Opdrachten</a></li>
+                <li><a href="https://oscarotero.com/jquery/"><i class="fa fa-eye"></i> Cheat sheet</a></li>
+            </ul>
+            <ul>
+                <li><a href="#!"></a></li>
+            </ul>
+        </nav>
+    </header>
+</div>
+<main class="container"> <!-- InstanceBeginEditable name="data" -->
+    <h1>Rapport</h1>
+    <ul>
+        <li>Voeg aan <b>elke eerste</b> rij binnen <b>tbody</b> de class <b>naam</b>
+            toe (tekst wordt groen).
+        </li>
+        <li>Voeg aan <b>elke laatste</b> rij binnen <b>tbody</b> de class <b>score</b>
+            toe (achtergrond wordt lichtgrijs).
+        </li>
+        <li>Geef het cijfer <b>8/20 en 9/20</b> een oranje achtergrond (class
+            <b>orange</b>).<br>
+            Geef elk cijfer <b>kleiner dan 8/20</b> een rode achtergrond (class <b>red</b>).
+        </li>
+        <li>Bereken voor elke rij de <b>totaalscore</b> en plaats deze in de <b> laatste
+            kolom</b>.<br>
+            <b>Tip</b>: de waarde die je uit een cel ophaalt, is altijd van het type string! <br>
+            Zet deze string via de methode <a
+                    href="http://www.w3schools.com/jsref/jsref_parsefloat.asp">parseFloat()</a>
+            om naar een getal.<br>
+            Indien de string <b>geen cijfer bevat</b>, is de waarde van parseFloat() gelijk aan <b>NaN</b>
+            (Not a Number).<br>
+            Bereken de eindscore enkel voor waardes die<b> niet NaN</b> zijn. Test de waarde met de
+            methode<a href="http://www.w3schools.com/jsref/jsref_isnan.asp"> isNaN()</a>.
+        </li>
+    </ul>
+    <section>
+        <h2>Rapport</h2>
+        <table id="rapport">
+            <thead>
+            <tr>
+                <th scope="col">Naam</th>
+                <th scope="col">Vak 1</th>
+                <th scope="col">Vak 2</th>
+                <th scope="col">Vak 3</th>
+                <th scope="col">Vak 4</th>
+                <th scope="col">Vak 5</th>
+                <th scope="col">Vak 6</th>
+                <th scope="col">Totaal</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Naam 1</td>
+                <td contenteditable="true">12</td>
+                <td contenteditable="true">14</td>
+                <td contenteditable="true">8</td>
+                <td contenteditable="true">5</td>
+                <td contenteditable="true">16</td>
+                <td contenteditable="true">9.5</td>
+                <td>???</td>
+            </tr>
+            <tr>
+                <td>Naam 2</td>
+                <td contenteditable="true">13.5</td>
+                <td contenteditable="true">18</td>
+                <td contenteditable="true">10</td>
+                <td contenteditable="true">9</td>
+                <td contenteditable="true">13</td>
+                <td contenteditable="true">5</td>
+                <td>???</td>
+            </tr>
+            <tr>
+                <td>Naam 3</td>
+                <td contenteditable="true">16</td>
+                <td contenteditable="true">8</td>
+                <td contenteditable="true">12</td>
+                <td contenteditable="true">14</td>
+                <td contenteditable="true">15</td>
+                <td contenteditable="true">8</td>
+                <td>???</td>
+            </tr>
+            <tr>
+                <td>Naam 4</td>
+                <td contenteditable="true">7</td>
+                <td contenteditable="true">8</td>
+                <td contenteditable="true">9.5</td>
+                <td contenteditable="true">12</td>
+                <td contenteditable="true">7</td>
+                <td contenteditable="true">15</td>
+                <td>???</td>
+            </tr>
+            <tr>
+                <td>Naam 5</td>
+                <td contenteditable="true">5</td>
+                <td contenteditable="true">10</td>
+                <td contenteditable="true">5</td>
+                <td contenteditable="true">10</td>
+                <td contenteditable="true">5</td>
+                <td contenteditable="true">5</td>
+                <td>???</td>
+            </tr>
+            <tr>
+                <td>Naam 6</td>
+                <td contenteditable="true">8</td>
+                <td contenteditable="true">6</td>
+                <td contenteditable="true">10</td>
+                <td contenteditable="true">9</td>
+                <td contenteditable="true">14</td>
+                <td contenteditable="true">16</td>
+                <td contenteditable="true">???</td>
+            </tr>
+            </tbody>
+        </table>
+        <p>&nbsp;</p>
+    </section>
+    <!-- InstanceEndEditable -->
+</main>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/les.js"></script>
+<!-- InstanceBeginEditable name="script" -->
+<script>
+    $(function () {
+        // Voeg aan de eerste kolom de class .naam toe
+
+        // Voeg aan de laatste kolom de class .score toe
+
+        // Kleur getallen
+
+    });
+</script>
+<!-- InstanceEndEditable -->
+</body>
+<!-- InstanceEnd --></html>

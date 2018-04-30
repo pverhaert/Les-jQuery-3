@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="nl"><!-- InstanceBegin template="/Templates/jQuery.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- InstanceBeginEditable name="doctitle" -->
+    <title>Email encoder</title>
+    <!-- InstanceEndEditable -->
+    <link href="../css/style.css" rel="stylesheet">
+    <!-- InstanceBeginEditable name="head" -->
+    <!-- InstanceEndEditable -->
+</head>
+<body>
+<div class="background-dark">
+    <header class="container">
+        <nav id="mainNav">
+            <ul>
+                <li><a href="../../index.html"><i class="fa fa-home"></i> Homepage</a></li>
+                <li><a href="../../opdrachten/index.html"><i class="fa fa-th-list"></i> Opdrachten</a></li>
+                <li><a href="https://oscarotero.com/jquery/"><i class="fa fa-eye"></i> Cheat sheet</a></li>
+            </ul>
+            <ul>
+                <li><a href="#!"></a></li>
+            </ul>
+        </nav>
+    </header>
+</div>
+<main class="container"> <!-- InstanceBeginEditable name="data" -->
+    <h1>Email encoder</h1>
+    <ul>
+        <li>Op deze pagina zijn alle mailadressen zodanig gecodeerd dat ze niet door spambots herkend worden.</li>
+        <li>De codering gebeurt als volgt:<br>
+            Inverteer alle letters (<b>abc</b> wordt <b>cba</b>).<br>
+            Vervang een punt door /<br>
+            Vervang @ door //
+        </li>
+        <li>Bijvoorbeeld: <b>mailto:demo@example.com</b> wordt: <b>mailto:moc/elpmaxe//omed</b></li>
+        <li>Ontwerp een functie die het gecodeerde mailadres op het href-attribuut terug omzet naar een gelding
+            mailadres.
+        </li>
+        <li>Doorloop elke a-tag met de jQuery methode <a target="_blank" href="http://api.jquery.com/each/">each()</a>
+        </li>
+    </ul>
+    <h2>Gecodeerde mailadressen:</h2>
+    <ul>
+        <li>Contacteer <a href="mailto:moc/elpmaxe//omed">demo</a></li>
+        <li>Contacteer <a href="mailto:moc/elpmaxe//elpmaxe">example</a></li>
+        <li>Contacteer <a href="mailto:moc/elpmaxe//tset">test</a></li>
+    </ul>
+
+    <!-- InstanceEndEditable -->
+</main>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/les.js"></script>
+<!-- InstanceBeginEditable name="script" -->
+<script>
+    $(function () {
+        $('a[href^="mailto:"]').each(function () {
+            //
+        });
+    });
+</script>
+<!-- InstanceEndEditable -->
+</body>
+<!-- InstanceEnd --></html>

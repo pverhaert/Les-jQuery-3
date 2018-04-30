@@ -1,0 +1,32 @@
+#mainNav{
+  padding: $base-pading/2 0;
+  display: flex;
+  justify-content: space-between;
+  ul {
+    padding-left: 0;
+    margin: 0;
+    display: flex;
+    li {
+      list-style: none;
+      margin-right: $base-pading;
+    }
+    a {
+      color: white;
+      &:hover {
+        color: ghostwhite;
+      }
+    }
+    &:last-child {
+      display: none;
+      a {
+        color: $brand-primary;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 560px) {
+  #mainNav ul:last-child {
+    display: block;
+  }
+}

@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="nl"><!-- InstanceBegin template="/Templates/jQuery.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- InstanceBeginEditable name="doctitle" -->
+    <title>The Movie DB</title>
+    <!-- InstanceEndEditable -->
+    <link href="../../css/style.css" rel="stylesheet">
+    <!-- InstanceBeginEditable name="head" -->
+    <style>
+        #cover {
+            border: solid 1px black;
+            float: left;
+            margin: 0 20px 20px 0;
+        }
+
+        label {
+            width: 100px;
+        }
+    </style>
+    <!-- InstanceEndEditable -->
+</head>
+<body>
+<div class="background-dark">
+    <header class="container">
+        <nav id="mainNav">
+            <ul>
+                <li><a href="../../../index.html"><i class="fa fa-home"></i> Homepage</a></li>
+                <li><a href="../../../opdrachten/index.html"><i class="fa fa-th-list"></i> Opdrachten</a></li>
+                <li><a href="https://oscarotero.com/jquery/"><i class="fa fa-eye"></i> Cheat sheet</a></li>
+            </ul>
+            <ul>
+                <li><a href="#!"></a></li>
+            </ul>
+        </nav>
+    </header>
+</div>
+<main class="container"> <!-- InstanceBeginEditable name="data" -->
+    <h1>The Movie DB <span>(JSONP)</span></h1>
+    <ul>
+        <li>Zoek een film op titel.</li>
+        <li>Van alle gevonden titels, verschijnt de <b>titel</b> en het <b>id</b> in keuzelijst.<br>
+            De code: &lt;option value=&quot;<b>id</b>&quot;&gt;<b>title</b>&lt;/option&gt;
+        </li>
+        <li>De keuzelijst haalt de detailgegevens op (<b>poster_path</b>, <b>title</b>,<b> homepage</b> en
+            <b>overview</b>)
+        </li>
+        <li>Toon deze gegevens in<b> #detail</b>.</li>
+        <li><b>LET OP</b>: voor deze API heb je een key nodig (<b>3d197569c7f13f60d61a7d61d5c83427</b>).</li>
+        <li>themoviedb API: <br>
+            <a href="https://developers.themoviedb.org/3/getting-started">https://developers.themoviedb.org/3/getting-started</a>
+        </li>
+        <li>Voorbeeld:<br>
+            Zoek titel <a
+                    href="http://api.themoviedb.org/3/search/movie?query=Harry+potter&api_key=3d197569c7f13f60d61a7d61d5c83427">"Harry
+                Potter"</a><br>
+            Details van ID <a
+                    href="http://api.themoviedb.org/3/movie/12445?api_key=3d197569c7f13f60d61a7d61d5c83427">12445</a>
+        </li>
+        <li>Voor deze service hoeft u geen <b>callback=?</b> toe te voegen.</li>
+    </ul>
+    <form name="movieForm" id="movieForm" method="post" action="http://www.themoeviedb.com/">
+        <div>
+            <label for="query">Titel:</label>
+            <div class="input">
+                <input type="text" name="query" id="query" value="Harry potter">
+            </div>
+
+            <button class="button" type="submit" name="submit" id="submit">Submit</button>
+        </div>
+    </form>
+    <div id="keuzelijst">
+        <label for="movieID">Movies:</label>
+        <div class="select">
+            <select id="movieID">
+                <option value="a">a</option>
+            </select>
+            <i class="fa fa-angle-down fa-2"></i>
+        </div>
+    </div>
+    <div id="detail" class="card">
+        <h3 class="card-header" id="title">Title</h3>
+        <div class="card-body">
+            <img src="http://www.lorempixel.com/180/250" id="cover" alt="">
+            <p id="overview">overview</p>
+            <p id="homepage">homepage</p>
+        </div>
+    </div>
+    <!-- InstanceEndEditable -->
+</main>
+<script src="../../js/jquery.min.js"></script>
+<script src="../../js/les.js"></script>
+<!-- InstanceBeginEditable name="script" -->
+<script>
+    eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('$(1(){2 g=\'12\';$(\'#8, #F\').l();$(\'#x\').w(1(e){e.O();2 f=$(6).N();$.v(\'h://s.r.o/3/T/y?n=\'+g+\'&\'+f,1(c){$(\'#7 j\').U();2 d=c.m;2 e=c.m.M;q(e==0){i(\'P 15 R\');$(\'#8\').l()}u{$(\'#8\').9()}$.V(c.m,1(a,b){$(\'#7\').13(\'<j K="\'+6.L+\'">\'+6.5+\'</j>\')});$(\'#7\').J()}).z(1(a){A.B(a);i(C.D(a))})});$(\'#7\').J(1(e){2 b=$(6).S();$.v(\'h://s.r.o/3/y/\'+b+\'?n=\'+g,1(a){q(a.E){$(\'#4\').G(\'W\',\'h://X.Y.Z/t/p/10/\'+a.E);$(\'#4\').G(\'11\',a.5);$(\'#4\').9()}u{$(\'#4\').l()}$(\'#5\').H(a.5);$(\'#I\').H(a.I);$(\'#k\').14(\'<a Q="\'+a.k+\'">\'+a.k+\'</a>\');$(\'#F\').9()}).z(1(a){A.B(a);i(C.D(a))})});$(\'#x\').w()});',62,68,'|function|var||cover|title|this|movieID|keuzelijst|show||||||||http|alert|option|homepage|hide|results|api_key|org||if|themoviedb|api||else|getJSON|submit|movieForm|movie|fail|console|log|JSON|stringify|poster_path|detail|attr|text|overview|change|value|id|length|serialize|preventDefault|Geen|href|gevonden|val|search|remove|each|src|cf2|imgobject|com|w185|alt|3d197569c7f13f60d61a7d61d5c83427|append|html|films'.split('|'),0,{}))
+</script>
+<!-- InstanceEndEditable -->
+</body>
+<!-- InstanceEnd --></html>

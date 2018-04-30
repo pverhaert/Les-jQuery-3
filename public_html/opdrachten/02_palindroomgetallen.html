@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="nl"><!-- InstanceBegin template="/Templates/jQuery.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- InstanceBeginEditable name="doctitle" -->
+    <title>Palindroomgetallen</title>
+    <!-- InstanceEndEditable -->
+    <link href="../css/style.css" rel="stylesheet">
+    <!-- InstanceBeginEditable name="head" -->
+    <style>
+        #totaal b {
+            color: darkred;
+            font-weight: bold;
+        }
+    </style>
+    <!-- InstanceEndEditable -->
+</head>
+<body>
+<div class="background-dark">
+    <header class="container">
+        <nav id="mainNav">
+            <ul>
+                <li><a href="../../index.html"><i class="fa fa-home"></i> Homepage</a></li>
+                <li><a href="../../opdrachten/index.html"><i class="fa fa-th-list"></i> Opdrachten</a></li>
+                <li><a href="https://oscarotero.com/jquery/"><i class="fa fa-eye"></i> Cheat sheet</a></li>
+            </ul>
+            <ul>
+                <li><a href="#!"></a></li>
+            </ul>
+        </nav>
+    </header>
+</div>
+<main class="container"> <!-- InstanceBeginEditable name="data" -->
+    <h1>Palindroomgetallen</h1>
+    <section>
+        <ul>
+            <li>Toon alle <a
+                    href="http://members.home.nl/frankcolijn/frankcolijn/palindromes.htm">palindroomgetallen</a> tussen
+                twee waardes.
+            </li>
+            <li>Toon een foutboodschap indien <b>getal2</b> &lt; <b>getal1</b>.</li>
+            <li><b>Let op</b>: formulierelementen worden altijd doorgestuurd als een <b>string</b>!
+                <br>
+                Dit kan je testen via<b> typeof(xxx)</b>.
+            </li>
+            <li>JavaScript functies: <b>string to integer</b>, <b>integer to string</b>, en <b>reverse
+                string</b>.
+            </li>
+        </ul>
+    </section>
+    <section>
+        <h2 id="totaal">Palindroomgetallen</h2>
+        Palindroomgetallen tussen:
+        <div class="input">
+            <input type="number" id="getal1" value="1">
+        </div>
+        en
+        <div class="input">
+            <input type="number" id="getal2" value="1000">
+        </div>
+    </section>
+    <section id="reeks" class="columns-10-center"></section>
+    <!-- InstanceEndEditable -->
+</main>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/les.js"></script>
+<!-- InstanceBeginEditable name="script" -->
+<script>
+    $(function () {
+        $('#getal1, #getal2').blur(function () {
+            //
+        }).blur();
+    });
+</script>
+<!-- InstanceEndEditable -->
+</body>
+<!-- InstanceEnd --></html>

@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="nl"><!-- InstanceBegin template="/Templates/jQuery.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- InstanceBeginEditable name="doctitle" -->
+    <title>NMBS</title>
+    <!-- InstanceEndEditable -->
+    <link href="../../css/style.css" rel="stylesheet">
+    <!-- InstanceBeginEditable name="head" -->
+    <!-- InstanceEndEditable -->
+</head>
+<body>
+<div class="background-dark">
+    <header class="container">
+        <nav id="mainNav">
+            <ul>
+                <li><a href="../../../index.html"><i class="fa fa-home"></i> Homepage</a></li>
+                <li><a href="../../../opdrachten/index.html"><i class="fa fa-th-list"></i> Opdrachten</a></li>
+                <li><a href="https://oscarotero.com/jquery/"><i class="fa fa-eye"></i> Cheat sheet</a></li>
+            </ul>
+            <ul>
+                <li><a href="#!"></a></li>
+            </ul>
+        </nav>
+    </header>
+</div>
+<main class="container"> <!-- InstanceBeginEditable name="data" -->
+    <h1>NMBS <span>(xml)</span></h1>
+    <ul>
+        <li>Plaats alle Belgische stations in een keuzelijst.<br>
+            Deze informatie is afkomstig van: <a href="https://api.irail.be/stations/?lang=nl">https://api.irail.be/stations/?lang=nl</a>
+        </li>
+        <li>Elk station krijgt als value: <b>locationX,locationY.</b> (Vergeet de komma tussen X en Y niet!) <br>
+            Bijvoorbeeld: &lt;option value=<b>&quot;4.988608,51.168955&quot;</b>&gt;<b>Geel</b>&lt;/option&gt;
+        </li>
+        <li>Toon in <b>#stationInfo</b> de naam van het station, de coördinaten en een afbeelding.<br>
+            Voor het station van Geel is dit:<br>
+            <a href="https://static-maps.yandex.ru/1.x/?lang=en-US&z=14&l=map&size=640,300&ll=4.988608,51.168955&pt=4.988608,51.168955,pm2rdl1">https://static-maps.yandex.ru/1.x/?lang=en-US&z=14&l=map&size=640,300&ll=<b>4.988608,51.168955</b>&pt=<b>4.988608,51.168955</b>,pm2rdl1</a>
+        </li>
+        <li>Yandex API: <a href="https://tech.yandex.com/maps/doc/staticapi/1.x/dg/concepts/input_params-docpage/">https://tech.yandex.com/maps/doc/staticapi/1.x/dg/concepts/input_params-docpage/</a>
+        </li>
+    </ul>
+    <div id="preloader" class="preloader-success"> Even geduld a.u.b.<br> Stations worden ingelezen.</div>
+    <div class="message-bar background-gray-light">
+        <form>
+            <div>
+                <label for="station">Station:</label>
+                <div class="select">
+                    <select name="station" id="station">
+                    </select>
+                    <i class="fa fa-angle-down fa-2"></i>
+                </div>
+            </div>
+        </form>
+        <div id="stationInfo">
+            <h2>Station X </h2>
+            <p>&nbsp;</p>
+            <img alt=""
+                 src="https://static-maps.yandex.ru/1.x/?lang=en-US&z=14&l=map&size=640,300&ll=4.988608,51.168955&pt=4.988608,51.168955,pm2rdl1">
+        </div>
+    </div>
+    <!-- InstanceEndEditable -->
+</main>
+<script src="../../js/jquery.min.js"></script>
+<script src="../../js/les.js"></script>
+<!-- InstanceBeginEditable name="script" -->
+<script>
+    eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('$(0(){2 d=\'q.u?w=6://L.P.U/n/?h=r\';$(\'#3\').f();$.F(d,0(a){$(\'#K\').f();2 b=$(a).e(\'5\');$.m(b,0(){$(\'<9 o="\'+$(4).7(\'s\')+\',\'+$(4).7(\'t\')+\'">\'+$(4).8()+\'</9>\').v(\'#5\');$(\'#5\').g()})}).y(0(a){A.B(a);C(D.E(a))});$(\'#5\').g(0(){$(\'#3\').1b();2 a=$(4).e(\'9:G\').8();2 b=$(4).H();2 c=\'6://J-i.j.M/1.x/?h=N-O&z=14&l=Q&R=S,T&k=\'+b+\'&V=\'+b+\',W\';$(\'#3 X\').8(\'Y \'+a);$(\'#3 p\').Z(\'<a 10="11" 12="6://j.13/i/16/17/?18=19&z=15&k=\'+b+\'">\'+b+\'</a>\');$(\'#3 1a\').7(\'I\',c)})});',62,74,'function||var|stationInfo|this|station|https|attr|text|option|||||find|hide|change|lang|maps|yandex|ll||each|stations|value||proxy|nl|locationX|locationY|php|appendTo|url||fail||console|log|alert|JSON|stringify|get|selected|val|src|static|preloader|api|ru|en|US|irail|map|size|640|300|be|pt|pm2rdl1|h2|Station|html|target|_blank|href|com|||103778|aachen|mode|search|img|show'.split('|'),0,{}))</script>
+<!-- InstanceEndEditable -->
+</body>
+<!-- InstanceEnd --></html>

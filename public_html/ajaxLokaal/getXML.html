@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="nl"><!-- InstanceBegin template="/Templates/jQuery.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- InstanceBeginEditable name="doctitle" -->
+    <title>jQuery: get XML</title>
+    <!-- InstanceEndEditable -->
+    <link href="../css/style.css" rel="stylesheet">
+    <!-- InstanceBeginEditable name="head" -->
+    <style>
+        img {
+            float: left;
+            margin: 0 10px;
+        }
+    </style>
+    <!-- InstanceEndEditable -->
+</head>
+<body>
+<div class="background-dark">
+    <header class="container">
+        <nav id="mainNav">
+            <ul>
+                <li><a href="../../index.html"><i class="fa fa-home"></i> Homepage</a></li>
+                <li><a href="../../opdrachten/index.html"><i class="fa fa-th-list"></i> Opdrachten</a></li>
+                <li><a href="https://oscarotero.com/jquery/"><i class="fa fa-eye"></i> Cheat sheet</a></li>
+            </ul>
+            <ul>
+                <li><a href="#!"></a></li>
+            </ul>
+        </nav>
+    </header>
+</div>
+<main class="container"> <!-- InstanceBeginEditable name="data" -->
+    <h1>$.get <span>(XML)</span></h1>
+    <h2>Bloemen</h2>
+    <div class="sjabloon">
+        <div class="card-success">
+            <h3 class="card-header">titel</h3>
+            <div class="card-body">
+                <img src="../assets/fotos/thumb_roos.jpg">
+                <div>Omschrijving</div>
+                <p><a href="#!">Meer info</a></p>
+            </div>
+        </div>
+    </div>
+    <!-- InstanceEndEditable -->
+</main>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/les.js"></script>
+<!-- InstanceBeginEditable name="script" -->
+<script>
+    $(function () {
+        $.get('data/bloemen.xml', function (data) {
+            console.log('data', data);
+            var bloem = $(data).find('bloem');
+            $.each(bloem, function (index, value) {
+                var id = $(this).attr('id');
+                var titel = $(this).find('titel').text();
+                var url = $(this).find('url').text();
+                var foto = $(this).find('foto').text();
+                var omschrijving = $(this).find('omschrijving').text();
+
+                $('.sjabloon').clone()
+                    .find('.card-header').text(id + ': ' + titel).end()
+                    .find('a').attr('href', url).end()
+                    .find('img').attr('src', '../assets/fotos/' + foto).end()
+                    .find('.card-body div').html(omschrijving).end()
+                    .removeClass('sjabloon').insertBefore('.sjabloon');
+            });
+            $('.sjabloon').remove();
+        }, 'xml').fail(function (err) {
+            console.log('error', err);
+        });
+    });
+</script>
+<!-- InstanceEndEditable -->
+</body>
+<!-- InstanceEnd --></html>

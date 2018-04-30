@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="nl"><!-- InstanceBegin template="/Templates/jQuery.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- InstanceBeginEditable name="doctitle" -->
+    <title>Elementen verwijderen</title>
+    <!-- InstanceEndEditable -->
+    <link href="../css/style.css" rel="stylesheet">
+    <!-- InstanceBeginEditable name="head" -->
+    <style>
+        .groen {
+            color: green;
+        }
+    </style>
+    <!-- InstanceEndEditable -->
+</head>
+<body>
+<div class="background-dark">
+    <header class="container">
+        <nav id="mainNav">
+            <ul>
+                <li><a href="../../index.html"><i class="fa fa-home"></i> Homepage</a></li>
+                <li><a href="../../opdrachten/index.html"><i class="fa fa-th-list"></i> Opdrachten</a></li>
+                <li><a href="https://oscarotero.com/jquery/"><i class="fa fa-eye"></i> Cheat sheet</a></li>
+            </ul>
+            <ul>
+                <li><a href="#!"></a></li>
+            </ul>
+        </nav>
+    </header>
+</div>
+<main class="container"> <!-- InstanceBeginEditable name="data" -->
+    <h1>Elementen verwijderen</h1>
+    <section id="sect1">
+        <h2>empty(), remove() en detach() methode</h2>
+        <p>
+            <input class="button" type="button" id="remove1" value="empty()">
+            <input class="button" type="button" id="remove2" value="remove()">
+            <input class="button" type="button" id="remove3" value="detach()">
+        </p>
+        <h3>lijst1</h3>
+        <ul id="lijst1">
+            <li>Lorem ipsum <b>dolor sit amet, consectetur</b> adipiscing elit. Fusce porttitor consequat
+                lacu.
+            </li>
+            <li> Et malesuada massa fermentum nec.</li>
+            <li>Quisque at eros in <b>enim semper tincidunt</b>. Nunc sit amet turpis metus.</li>
+        </ul>
+        <h3>lijst2</h3>
+        <ul id="lijst2">
+            <li>Lorem ipsum <b>dolor sit amet, consectetur</b> adipiscing elit. Fusce porttitor consequat
+                lacu.
+            </li>
+            <li> Et malesuada massa fermentum nec.</li>
+            <li>Quisque at eros in <b>enim semper tincidunt</b>. Nunc sit amet turpis metus.</li>
+        </ul>
+        <h3>lijst3</h3>
+        <ul id="lijst3">
+            <li>Lorem ipsum <b>dolor sit amet, consectetur</b> adipiscing elit. Fusce porttitor consequat
+                lacu.
+            </li>
+            <li> Et malesuada massa fermentum nec.</li>
+            <li>Quisque at eros in <b>enim semper tincidunt</b>. Nunc sit amet turpis metus.</li>
+        </ul>
+    </section>
+
+    <!-- InstanceEndEditable -->
+</main>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/les.js"></script>
+<!-- InstanceBeginEditable name="script" -->
+<script>
+    $(function () {
+        //empty()
+        $('#remove1').click(function () {
+            $('#lijst1 b').empty();
+        });
+        //remove()
+        $('#remove2').click(function () {
+            $('#lijst2 b').remove();
+        });
+        // detach()
+        $('#remove3').click(function () {
+            var lijst3 = $('#lijst3').detach();
+            lijst3.insertAfter('h1');
+        });
+    });
+</script>
+<!-- InstanceEndEditable -->
+</body>
+<!-- InstanceEnd --></html>

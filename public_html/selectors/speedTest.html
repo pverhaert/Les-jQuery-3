@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="nl"><!-- InstanceBegin template="/Templates/jQuery.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- InstanceBeginEditable name="doctitle" -->
+    <title>Speed Test</title>
+    <!-- InstanceEndEditable -->
+    <link href="../css/style.css" rel="stylesheet">
+    <!-- InstanceBeginEditable name="head" -->
+    <!-- InstanceEndEditable -->
+</head>
+<body>
+<div class="background-dark">
+    <header class="container">
+        <nav id="mainNav">
+            <ul>
+                <li><a href="../../index.html"><i class="fa fa-home"></i> Homepage</a></li>
+                <li><a href="../../opdrachten/index.html"><i class="fa fa-th-list"></i> Opdrachten</a></li>
+                <li><a href="https://oscarotero.com/jquery/"><i class="fa fa-eye"></i> Cheat sheet</a></li>
+            </ul>
+            <ul>
+                <li><a href="#!"></a></li>
+            </ul>
+        </nav>
+    </header>
+</div>
+<main class="container"> <!-- InstanceBeginEditable name="data" -->
+    <h1>Speed test</h1>
+    <div class="input">
+        <input id="loops" type="number" required value="10000" placeholder="loops">
+    </div>
+    <div>
+        <input class="button" type="button" name="speed1" id="speed1" value="$('li').first()">
+        <span class="error" id="timer1"></span>
+    </div>
+    <div>
+        <input class="button" type="button" name="speed2" id="speed2" value="$('li').filter(':first')">
+        <span class="error" id="timer2"></span>
+    </div>
+    <div>
+        <input class="button" type="button" name="speed3" id="speed3" value="$('li:first')">
+        <span class="error" id="timer3"></span>
+    </div>
+    <section>
+        <h2>Lijst 1</h2>
+        <ul>
+            <li>item 0: Ullamco laboris nisi quis nostrud exercitation</li>
+            <li>item 1: ut aliquip ex ea commodo consequat</li>
+            <li>item 2: Sunt in culpa cupidatat non proident, eu fugiat nulla pariatur</li>
+            <li>item 3: Lorem ipsum dolor sit amet, in reprehenderit in voluptate ut enim ad minim veniam</li>
+            <li>item 4: Ut aliquip ex ea commodo consequat.</li>
+            <li>item 5: Phasellus ut ante eget eros tempor laoreet.</li>
+            <li>item 6: Maecenas porttitor sem non nulla pulvinar a mattis urna pharetra.</li>
+            <li>item 7: Phasellus at erat dolor, eu dignissim ante.</li>
+        </ul>
+    </section>
+    <!-- InstanceEndEditable -->
+</main>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/les.js"></script>
+<!-- InstanceBeginEditable name="script" -->
+<script>
+    $(function () {
+        var loop = 10000;
+        var startTijd, stopTijd, d = 0;
+        $('#loops').blur(function () {
+            $(this).val() > 0 ? loop = $(this).val() : loop = 10000;
+        });
+        $('#speed1').click(function () {
+            timer('start');
+            $('*').removeClass('highLight');
+            for (i = 0; i <= loop; i++) {
+                $('main li').first().addClass('highLight');
+            }
+            timer('stop');
+            $('#timer1').text(' x ' + loop + ' = ' + (stopTijd - startTijd) + ' ms');
+        });
+        $('#speed2').click(function () {
+            timer('start');
+            $('*').removeClass('highLight');
+            for (i = 0; i <= loop; i++) {
+                $('main li').filter(':first').addClass('highLight');
+            }
+            timer('stop');
+            $('#timer2').text(' x ' + loop + ' = ' + (stopTijd - startTijd) + ' ms');
+        });
+        $('#speed3').click(function () {
+            timer('start');
+            $('*').removeClass('highLight');
+            for (i = 0; i <= loop; i++) {
+                $('main li:first').first().addClass('highLight');
+            }
+            timer('stop');
+            $('#timer3').text(' x ' + loop + ' = ' + (stopTijd - startTijd) + ' ms');
+        });
+
+        function timer(time) {
+            d = new Date();
+            (time == 'start') ? startTijd = d.getTime() : stopTijd = d.getTime();
+        }
+    });
+</script>
+<!-- InstanceEndEditable -->
+</body>
+<!-- InstanceEnd --></html>

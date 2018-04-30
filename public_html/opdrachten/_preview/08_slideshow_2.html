@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="nl"><!-- InstanceBegin template="/Templates/jQuery.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- InstanceBeginEditable name="doctitle" -->
+    <title>Slideshow</title>
+    <!-- InstanceEndEditable -->
+    <link href="../../css/style.css" rel="stylesheet">
+    <!-- InstanceBeginEditable name="head" -->
+    <style>
+        #album {
+            display: flex;
+        }
+
+        #album li {
+            list-style: none;
+            margin: 5px;
+        }
+
+        #album img {
+            border: solid 1px black;
+            box-shadow: 3px 3px 3px rgba(51, 51, 51, 1);
+        }
+    </style>
+    <!-- InstanceEndEditable -->
+</head>
+<body>
+<div class="background-dark">
+    <header class="container">
+        <nav id="mainNav">
+            <ul>
+                <li><a href="../../../index.html"><i class="fa fa-home"></i> Homepage</a></li>
+                <li><a href="../../../opdrachten/index.html"><i class="fa fa-th-list"></i> Opdrachten</a></li>
+                <li><a href="https://oscarotero.com/jquery/"><i class="fa fa-eye"></i> Cheat sheet</a></li>
+            </ul>
+            <ul>
+                <li><a href="#!"></a></li>
+            </ul>
+        </nav>
+    </header>
+</div>
+<main class="container"> <!-- InstanceBeginEditable name="data" -->
+    <h1>Slideshow <span>(gevorderden)</span></h1>
+    <ul>
+        <li>Kloon <b>elke 3 sec</b> de eerste afbeelding in <b>ul#album</b>.</li>
+        <li>Zet zowel de <b>breedte</b> als de <b>opacity</b> van deze kopie op <b>0</b> en voeg deze kopie
+            vervolgens achteraan <b>ul#album</b> toe.
+        </li>
+        <li>Daarna volgt de animatie.</li>
+        <li><b>De eertse li-tag</b>: animeer over <b>1,5 sec</b> zowel de <b>breedte</b> als de <b>opacity</b> naar
+            <b>0</b>. Zodra de animatie ten einde is,wordt deze afbeelding uit het DOM verwijderd.
+        </li>
+        <li><b>De laatste li-tag</b>: animeer over <b>1,5 sec</b> de <b>breedte</b> naar <b>100</b> (px) en de <b>opacity</b>
+            naar <b>1</b>.
+        </li>
+        <li>De animaties op de <b>eerste li-tag</b> en de <b>laatste li-tag</b> lopen <b>synchroon</b>.</li>
+    </ul>
+    <ul id="album">
+        <li><img src="../../assets/fotos/thumb_lelie.jpg" width="100" height="100" alt="" title="Lelie"></li>
+        <li><img src="../../assets/fotos/thumb_anjer.jpg" width="100" height="100" alt="" title="Anjer"></li>
+        <li><img src="../../assets/fotos/thumb_narcis.jpg" width="100" height="100" alt="" title="Narcis"></li>
+        <li><img src="../../assets/fotos/thumb_tulp.jpg" width="100" height="100" alt="" title="Tulp"></li>
+        <li><img src="../../assets/fotos/thumb_roos.jpg" width="100" height="100" alt="" title="Roos"></li>
+    </ul>
+    <!-- InstanceEndEditable -->
+</main>
+<script src="../../js/jquery.min.js"></script>
+<script src="../../js/les.js"></script>
+<!-- InstanceBeginEditable name="script" -->
+<script>
+    eval(function(p,a,c,k,e,r){e=function(c){return c.toString(a)};if(!''.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('$(2(){b(2(){8()},f);2 8(){$(\'#3 5:7\').c().e({6:0,4:0}).d(\'#3\');$(\'#3 5:7\').9({6:0,4:0,},a,2(){$(g).h()});$(\'#3 5:i\').9({6:j,4:1},a)}});',20,20,'||function|album|opacity|li|width|first|slideShow|animate|1500|setInterval|clone|appendTo|css|3000|this|remove|last|100'.split('|'),0,{}))
+</script>
+<!-- InstanceEndEditable -->
+</body>
+<!-- InstanceEnd --></html>

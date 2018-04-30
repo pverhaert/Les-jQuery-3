@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="nl"><!-- InstanceBegin template="/Templates/jQuery.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- InstanceBeginEditable name="doctitle" -->
+    <title>jQuery iTunes</title>
+    <!-- InstanceEndEditable -->
+    <link href="../../css/style.css" rel="stylesheet">
+    <!-- InstanceBeginEditable name="head" -->
+    <style>
+        .preloader-success {
+            display: none;
+        }
+        h2 {
+            text-align: center;
+        }
+
+        #thumbs {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        #thumbs img {
+            margin:  0 10px 10px 0;
+            border: solid 1px lightGrey;
+            padding: 3px;
+            cursor: pointer;
+        }
+
+        #detail td {
+            vertical-align: top;
+        }
+        #detail table img:first-of-type {
+            border: solid 1px lightGrey;
+            padding: 3px;
+            max-width: 150px;
+        }
+        img[src$='spacer.gif'] {
+            border-style: none !important;
+        }
+    </style>
+    <!-- InstanceEndEditable -->
+</head>
+<body>
+<div class="background-dark">
+    <header class="container">
+        <nav id="mainNav">
+            <ul>
+                <li><a href="../../../index.html"><i class="fa fa-home"></i> Homepage</a></li>
+                <li><a href="../../../opdrachten/index.html"><i class="fa fa-th-list"></i> Opdrachten</a></li>
+                <li><a href="https://oscarotero.com/jquery/"><i class="fa fa-eye"></i> Cheat sheet</a></li>
+            </ul>
+            <ul>
+                <li><a href="#!"></a></li>
+            </ul>
+        </nav>
+    </header>
+</div>
+<main class="container"> <!-- InstanceBeginEditable name="data" -->
+    <h1>iTunes <span>(http://itunes.apple.com/rss)</span></h1>
+    <label for="url">iTunes Feed: </label>
+    <div class="select">
+        <select name="url" id="url">
+            <option value="https://itunes.apple.com/be/rss/topalbums/limit=21/xml">Top Albums</option>
+            <option value="https://itunes.apple.com/be/rss/topsongs/limit=21/xml">Top Songs</option>
+            <option value="https://itunes.apple.com/be/rss/topfreemacapps/limit=24/xml">Top Free Mac Apps</option>
+            <option value="https://itunes.apple.com/be/rss/topmovies/limit=30/xml">Top Films</option>
+        </select>
+        <i class="fa fa-angle-down fa-2"></i>
+    </div>
+    <div class="preloader-success">Even geduld...</div>
+    <h2>iTunes RRS feed</h2>
+    <section id="thumbs"></section>
+    <section id="detail"></section>
+    <!-- InstanceEndEditable -->
+</main>
+<script src="../../js/jquery.min.js"></script>
+<script src="../../js/les.js"></script>
+<!-- InstanceBeginEditable name="script" -->
+<script>
+    $(function () {
+        $('#thumbs, #detail').hide();
+        $('#url').change(function (e) {
+            $('.preloader-success').show();
+            $('#thumbs, #detail').empty();
+            var url = $(this).val();
+            $.get('proxy.php?url=' + url, function (data) {
+                $('#thumbs, #detail').show();
+                $('h2').text($(data).find('title:first').text());
+                var entry = $(data).find('entry');
+                $.each(entry, function (index, value) {
+                    //Eerste selector (im\\:image:eq(1))  voor FF en IE, tweede (image:eq(1)) voor Chrome en Safari
+                    var img = $(this).find('im\\:image:eq(1), image:eq(1)').text();
+                    var title = $(this).find('title').text();
+                    var content = $(this).find('content').text();
+                    $('#thumbs').append('<img src="' + img + '" data-id="' + index + '">');
+                    $('#detail').append('<div id="entry' + index + '"><h3>' + title + '</h3>' + content + '</div>');
+                });
+                $('#detail div').not(':first').hide();
+            }, 'xml').done(function () {
+                $('.preloader-success').hide();
+            }).fail(function (err) {
+                console.error('error', err);
+            });
+        }).change();
+
+        $('#thumbs').on('click', 'img', function () {
+            var id = $(this).data('id');
+            $('#detail div:visible').hide();
+            $('#entry' + id).show();
+        });
+    });
+</script>
+<!-- InstanceEndEditable -->
+</body>
+<!-- InstanceEnd --></html>

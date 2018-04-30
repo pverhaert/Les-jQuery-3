@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="nl"><!-- InstanceBegin template="/Templates/jQuery.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- InstanceBeginEditable name="doctitle" -->
+    <title>jQuery documentatie</title>
+    <!-- InstanceEndEditable -->
+    <link href="../css/style.css" rel="stylesheet">
+    <!-- InstanceBeginEditable name="head" -->
+    <style>
+        #sect2 {
+            border: solid 1px red;
+            padding: 20px;
+            width: 600px;
+            margin: 10px auto;
+        }
+    </style>
+    <!-- InstanceEndEditable -->
+</head>
+<body>
+<div class="background-dark">
+    <header class="container">
+        <nav id="mainNav">
+            <ul>
+                <li><a href="../../index.html"><i class="fa fa-home"></i> Homepage</a></li>
+                <li><a href="../../opdrachten/index.html"><i class="fa fa-th-list"></i> Opdrachten</a></li>
+                <li><a href="https://oscarotero.com/jquery/"><i class="fa fa-eye"></i> Cheat sheet</a></li>
+            </ul>
+            <ul>
+                <li><a href="#!"></a></li>
+            </ul>
+        </nav>
+    </header>
+</div>
+<main class="container"> <!-- InstanceBeginEditable name="data" -->
+    <h1>jQuery documentatie (API): <a href="http://api.jquery.com/css/">methode css()</a></h1>
+    <section>
+        <h2>Getter:</h2>
+        <ul>
+            <li><a href="javascript:;" id="getter">alert($('#sect2').css('width'))</a></li>
+        </ul>
+        <h2>Setter:</h2>
+        <ul>
+            <li><a href="javascript:;" id="setter1">$('#sect2').css('width', '400px');</a></li>
+            <li><a href="javascript:;" id="setter2">$('#sect2').css({'box-shadow': '5px 5px 3px grey', 'color': 'green',
+                'width': '700px'});</a></li>
+            <li><a href="javascript:;" id="setter3">$('#sect2').css({fontSize: function(){ return
+                parseFloat($('#sect2').css('font-size')) * 1.2; }});</a></li>
+        </ul>
+    </section>
+    <section id="sect2">
+        <h2>Section2</h2>
+        <p>Maecenas sagittis rutrum nisi, non euismod dolor scelerisque faucibus. Pellentesque dictum eleifend justo
+            vitae condimentum. Nulla volutpat, ligula et euismod tristique, tellus purus sollicitudin libero, non ornare
+            magna quam nec odio. Vestibulum eget dui orci. Suspendisse dolor turpis, scelerisque vitae tincidunt et,
+            fringilla rutrum arcu. Sed sed sapien leo. Praesent sagittis vestibulum tellus, sit amet gravida felis
+            volutpat a. Maecenas eu nulla nibh, vitae vehicula nulla. Morbi quis mi orci, et ornare risus. Pellentesque
+            facilisis massa elit, sed gravida nibh. Nulla turpis risus, aliquam malesuada eleifend ac, auctor ut tortor.
+            Proin sit amet turpis est. Nam adipiscing eros arcu. Vivamus vehicula dui at ante imperdiet vel ultrices leo
+            tempus. Phasellus nec eros tortor, in suscipit mi. Nullam blandit, ipsum sed auctor scelerisque, purus
+            turpis sollicitudin enim, quis pellentesque leo neque ac urna. </p>
+    </section>
+    <!-- InstanceEndEditable -->
+</main>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/les.js"></script>
+<!-- InstanceBeginEditable name="script" -->
+<script>
+    $(function () {
+        $('#getter').click(function () {
+            alert($('#sect2').css('width'));
+        });
+        $('#setter1').click(function () {
+            $('#sect2').css('width', '400px');
+        });
+        $('#setter2').click(function () {
+            $('#sect2').css({'box-shadow': '5px 5px 3px grey', 'color': 'green', 'width': '700px'});
+            //$('#sect2').css_OUD({boxShadow: '5px 5px 3px grey', color: 'green', width: '700px'});
+        });
+        $('#setter3').click(function () {
+            $('#sect2').css({
+                fontSize: function () {
+                    return parseFloat($('#sect2').css('font-size')) * 1.2;
+                }
+            });
+        });
+    });
+</script>
+<!-- InstanceEndEditable -->
+</body>
+<!-- InstanceEnd --></html>

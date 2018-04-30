@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="nl"><!-- InstanceBegin template="/Templates/jQuery.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- InstanceBeginEditable name="doctitle" -->
+    <title>jQuery: Json (meerdere objecten)</title>
+    <!-- InstanceEndEditable -->
+    <link href="../css/style.css" rel="stylesheet">
+    <!-- InstanceBeginEditable name="head" -->
+    <style>
+        .drop-shadow {
+            margin: 20px;
+        }
+
+        .drop-shadow img {
+            float: right;
+            margin: 0 10px;
+            border: solid 1px lightGrey;
+            padding: 3px;
+            box-shadow: 3px 3px 3px rgba(51, 51, 51, 1);
+        }
+    </style>
+    <!-- InstanceEndEditable -->
+</head>
+<body>
+<div class="background-dark">
+    <header class="container">
+        <nav id="mainNav">
+            <ul>
+                <li><a href="../../index.html"><i class="fa fa-home"></i> Homepage</a></li>
+                <li><a href="../../opdrachten/index.html"><i class="fa fa-th-list"></i> Opdrachten</a></li>
+                <li><a href="https://oscarotero.com/jquery/"><i class="fa fa-eye"></i> Cheat sheet</a></li>
+            </ul>
+            <ul>
+                <li><a href="#!"></a></li>
+            </ul>
+        </nav>
+    </header>
+</div>
+<main class="container"> <!-- InstanceBeginEditable name="data" -->
+    <h1>$.getJSON <span>(meerdere objecten)</span></h1>
+    <h2>Bloemzaden</h2>
+    <section>
+        <ul id="bloemzadenlijst">
+        </ul>
+    </section>
+    <h2>Bloemen</h2>
+    <section class="sjabloon drop-shadow">
+        <h2>titel</h2>
+        <img src="../assets/fotos/thumb_roos.jpg">
+        <div>Omschrijving</div>
+        <p><a href="#">Meer info</a></p>
+        <div class="reset"></div>
+    </section>
+
+    <!-- InstanceEndEditable -->
+</main>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/les.js"></script>
+<!-- InstanceBeginEditable name="script" -->
+<script>
+    $(function () {
+        $.getJSON('data/bloemen3.json', function (data) {
+            console.log('data', data);
+            console.log('data.bloemzaden', data.bloemzaden);
+            console.log('data.bloem', data.bloem);
+            console.log('data.bloem[0].titel :', data.bloem[0].titel);
+            // bloemzaden
+            $.each(data.bloemzaden, function (index, value) {
+                $("#bloemzadenlijst").append('<li><strong>' + this.titel + '</strong><br>' + this.omschrijving + '</li>\n\t');
+            });
+            // bloemen
+            $.each(data.bloem, function (index, value) {
+                $('.sjabloon').clone()
+                    .find('h2').text(this.titel).end()
+                    .find('div:first').html(this.omschrijving).end()
+                    .find('a').attr('href', this.url).end()
+                    .find('img').attr('src', '../assets/fotos/' + this.foto).end()
+                    .removeClass('sjabloon').insertBefore('.sjabloon');
+            });
+            $('.sjabloon').remove();
+        }).fail(function (err) {
+            console.log('error', err);
+        });
+    });
+</script>
+<!-- InstanceEndEditable -->
+</body>
+<!-- InstanceEnd --></html>

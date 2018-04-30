@@ -1,0 +1,35 @@
+/*
+https://github.com/sierra-library/sierra
+http://sierra-library.github.io/
+*/
+
+//@import url('https://use.fontawesome.com/releases/v5.0.10/css/all.css');
+
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+
+@import "../node_modules/sierra-library/src/variables.light";
+@import "myVariables";
+@import "../node_modules/sierra-library/src/library";
+@import "tags";
+@import "mainNav";
+@import "tabNav";
+@import "form";
+@import "table";
+@import "columns";
+@import "card";
+@import "preloader";
+
+.message-bar {
+  color: white;
+}
+.background-gray-light {
+  color: black;
+}
+
+.highLight {
+  border: solid 2px green !important;
+  padding: 5px !important;
+  background-color: #FF6 !important;
+  background-image: none !important;
+  color: red !important;
+}

@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="nl"><!-- InstanceBegin template="/Templates/jQuery.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- InstanceBeginEditable name="doctitle" -->
+    <title>String object</title>
+    <!-- InstanceEndEditable -->
+    <link href="../css/style.css" rel="stylesheet">
+    <!-- InstanceBeginEditable name="head" -->
+    <style>
+        #email {
+            width: 200px;
+        }
+
+        .highlightYellow {
+            background-color: #FF6;
+        }
+
+        .highlightRed {
+            background-color: #F66;
+        }
+    </style>
+    <!-- InstanceEndEditable -->
+</head>
+<body>
+<div class="background-dark">
+    <header class="container">
+        <nav id="mainNav">
+            <ul>
+                <li><a href="../../index.html"><i class="fa fa-home"></i> Homepage</a></li>
+                <li><a href="../../opdrachten/index.html"><i class="fa fa-th-list"></i> Opdrachten</a></li>
+                <li><a href="https://oscarotero.com/jquery/"><i class="fa fa-eye"></i> Cheat sheet</a></li>
+            </ul>
+            <ul>
+                <li><a href="#!"></a></li>
+            </ul>
+        </nav>
+    </header>
+</div>
+<main class="container"> <!-- InstanceBeginEditable name="data" -->
+    <h1>String object</h1>
+    <section>
+        <h2>Gecodeerd mailadres</h2>
+        <label for="email">Mailadres: </label>
+        <div class="input">
+            <input type="text" id="email" placeholder="mailadres">
+        </div>
+        <p id="resultaat"></p>
+    </section>
+    <h2>String replace met regex</h2>
+    <h3>Originele tekst:</h3>
+    <section id="section2" contenteditable title="Bewerk deze tekst" class="message-bar background-gray-light">
+        <p>JavaScript is een scripttaal die veel gebruikt wordt om webpagina's interactief te maken en webapplicaties te
+            ontwikkelen. De syntaxis van JavaScript vertoont overeenkomsten met de programmeertaal Java. </p>
+        <p>Events vormen het hart van een JavaScript-pagina. Event-handling staat toe dat de JavaScript opdrachten op
+            het juiste moment worden uitgevoerd, wanneer de juiste gebreurtenis heeft plaatsgevonden: <br>
+            Een berekening wordt uitgevoerd wanneer een gebruiker op een knop klikt, een figuur verandert wanneer de
+            gebruiker er met de muis over beweegt, een animatie wordt gestart wanneer de pagina geladen is ... </p>
+        <p>Een functie kan je in JavaScript gebruiken om een groep opdrachten te kunnen uitvoeren met een aangegeven
+            naam. De opdrachten of statements die binnen de functie staan worden uitgevoerd wanneer de functie wordt
+            aangeroepen.Een functie kan waarden ontvangen en retourneren naar de plaats van aanroep. </p>
+    </section>
+    <p>
+        <button class="button" id="vervang">Vervang 'JavaScript' door 'jQuery'</button>
+    </p>
+    <h3>Aangepaste tekst:</h3>
+    <section id="section3" class="message-bar background-gray-light"></section>
+
+    <!-- InstanceEndEditable -->
+</main>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/les.js"></script>
+<!-- InstanceBeginEditable name="script" -->
+<script>
+    $(function () {
+        // Voorbeeld 1
+        $('#email').blur(function () {
+            var resultaat = "";
+            var mailadres = $(this).val();
+            if (mailadres.length == 0) {
+                resultaat = "Gelieve <mark>een mailadres</mark> in te vullen";
+            } else if (mailadres.search('@') == -1) {
+                resultaat = "Dit is <mark>geen geldig mailadres</mark>";
+            } else {
+                mailadres = mailadres.replace('@', ' AT ');
+                //mailadres = mailadres.replace('@', ' AT ').replace('.', ' DOT ');
+                resultaat = 'Gecodeerd adres: ' + mailadres;
+            }
+            $('#resultaat').html(resultaat)
+        });
+
+        // Voorbeeld 2
+        $('#vervang').click(function () {
+            var jq = $('#section2').html();
+            jq = jq.replace('JavaScript', 'jQuery');
+            //jq = jq.replace(/JavaScript/, 'jQuery');
+            //jq = jq.replace(/JavaScript/g, 'jQuery');
+            $('#section3').html(jq);
+        });
+
+        // Kleur de woorden JavaScript en jQuery.
+        // Deze code behoort niet tot de oefening!
+        $('#section2, #section3').addClass('drop-shadow');
+        $('#section2').bind('blur focus', highLight);
+        $('#vervang').bind('click', highLight);
+        highLight();
+
+        function highLight() {
+            var str = "JavaScript";
+            $('section:contains(' + str + ')').each(function () {
+                var regex = new RegExp(str, "g");
+                $(this).html($(this).html().replace(regex, "<span class='highlightYellow'>" + str + "</span>"));
+            });
+            str = "jQuery";
+            $('section:contains(' + str + ')').each(function () {
+                var regex = new RegExp(str, "g");
+                $(this).html($(this).html().replace(regex, "<span class='highlightRed'>" + str + "</span>"));
+            });
+        };
+    });
+</script>
+<!-- InstanceEndEditable -->
+</body>
+<!-- InstanceEnd --></html>

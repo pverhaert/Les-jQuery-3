@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="nl"><!-- InstanceBegin template="/Templates/jQuery.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- InstanceBeginEditable name="doctitle" -->
+    <title>Object dimensies</title>
+    <!-- InstanceEndEditable -->
+    <link href="../css/style.css" rel="stylesheet">
+    <!-- InstanceBeginEditable name="head" -->
+    <style>
+        /*main {
+            position: relative;
+        }*/
+        #sect1 {
+            width: 300px;
+            float: left;
+            border: solid 4px lightGrey;
+            padding: 10px;
+            margin: 5px 5px 10px 5px;
+            margin-bottom: 10px;
+            cursor: text;
+        }
+
+        #sect2 {
+            width: 300px;
+            float: right;
+        }
+    </style>
+    <!-- InstanceEndEditable -->
+</head>
+<body>
+<div class="background-dark">
+    <header class="container">
+        <nav id="mainNav">
+            <ul>
+                <li><a href="../../index.html"><i class="fa fa-home"></i> Homepage</a></li>
+                <li><a href="../../opdrachten/index.html"><i class="fa fa-th-list"></i> Opdrachten</a></li>
+                <li><a href="https://oscarotero.com/jquery/"><i class="fa fa-eye"></i> Cheat sheet</a></li>
+            </ul>
+            <ul>
+                <li><a href="#!"></a></li>
+            </ul>
+        </nav>
+    </header>
+</div>
+<main class="container"> <!-- InstanceBeginEditable name="data" -->
+    <h1>Object dimensies</h1>
+    <section id="sect1" contenteditable="true" title="Bewerk deze tekst">
+        <h2>Getter</h2>
+        <p></p>
+    </section>
+    <section id="sect2">
+        <h2>Setter</h2>
+        <input class="button" type="button" id="width" value="width('400px')"><br>
+        <input class="button" type="button" id="innerWidth" value="innerWidth('400px')"><br>
+        <input class="button" type="button" id="outerWidth" value="outerWidth('400px')"><br>
+        <input class="button" type="button" id="outerWidthTrue" value="outerWidth('400px', true)"><br>
+        <input class="button" type="button" id="height" value="height('400px')"><br>
+        <input class="button" type="button" id="offset" value="offset({top:0, left:0}">
+    </section>
+    <div class="reset">&nbsp;</div>
+
+    <!-- InstanceEndEditable -->
+</main>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/les.js"></script>
+<!-- InstanceBeginEditable name="script" -->
+<script>
+    $(function () {
+        $('#sect1').on('mouseleave keyup', function () {
+            toonEigenschappen();
+        });
+        $('#sect1').mouseleave();
+
+        $('#width').click(function () {
+            $('#sect1').width('400px');
+            toonEigenschappen();
+        });
+        $('#innerWidth').click(function () {
+            $('#sect1').innerWidth('400px');
+            toonEigenschappen();
+        });
+        $('#outerWidth').click(function () {
+            $('#sect1').outerWidth('400px');
+            toonEigenschappen();
+        });
+        $('#outerWidthTrue').click(function () {
+            $('#sect1').outerWidth('400px', true);
+            toonEigenschappen();
+        });
+        $('#height').click(function () {
+            $('#sect1').height('400px').css('overflow', 'auto');
+            toonEigenschappen();
+        });
+        $('#offset').click(function () {
+            $('#sect1').offset({top: 0, left: 0});
+            toonEigenschappen();
+        });
+
+        function toonEigenschappen() {
+            sec = $('#sect1');
+            eigenschappen = 'width(): ' + sec.width() + '<br>';
+            eigenschappen += 'innerWidth(): ' + sec.innerWidth() + '<br>';
+            eigenschappen += 'outerWidth(): ' + sec.outerWidth() + '<br>';
+            eigenschappen += 'outerWidth(true): ' + sec.outerWidth(true) + '<br><br>';
+            eigenschappen += 'height(): ' + sec.height() + '<br>';
+            eigenschappen += 'innerHeight(): ' + sec.innerHeight() + '<br>';
+            eigenschappen += 'outerHeight(): ' + sec.outerHeight() + '<br>';
+            eigenschappen += 'outerHeight(true): ' + sec.outerHeight(true) + '<br><br>';
+            eigenschappen += 'offset().left: ' + sec.offset().left + '<br>';
+            eigenschappen += 'offset().top : ' + sec.offset().top + '<br>';
+            eigenschappen += 'position().left: ' + sec.position().left + '<br>';
+            eigenschappen += 'position().top: ' + sec.position().top + '<br>';
+            $('#sect1 p:first').html(eigenschappen);
+        }
+    });
+</script>
+<!-- InstanceEndEditable -->
+</body>
+<!-- InstanceEnd --></html>

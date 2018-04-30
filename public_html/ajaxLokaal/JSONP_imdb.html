@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="nl"><!-- InstanceBegin template="/Templates/jQuery.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- InstanceBeginEditable name="doctitle" -->
+    <title>jQuery: IMDB</title>
+    <!-- InstanceEndEditable -->
+    <link href="../css/style.css" rel="stylesheet">
+    <!-- InstanceBeginEditable name="head" -->
+    <style>
+        .preloader-success, #imdbInfo {
+            display: none;
+        }
+
+        #cover {
+            float: right;
+        }
+
+        label {
+            width: 80px;
+        }
+    </style>
+    <!-- InstanceEndEditable -->
+</head>
+<body>
+<div class="background-dark">
+    <header class="container">
+        <nav id="mainNav">
+            <ul>
+                <li><a href="../../index.html"><i class="fa fa-home"></i> Homepage</a></li>
+                <li><a href="../../opdrachten/index.html"><i class="fa fa-th-list"></i> Opdrachten</a></li>
+                <li><a href="https://oscarotero.com/jquery/"><i class="fa fa-eye"></i> Cheat sheet</a></li>
+            </ul>
+            <ul>
+                <li><a href="#!"></a></li>
+            </ul>
+        </nav>
+    </header>
+</div>
+<main class="container"> <!-- InstanceBeginEditable name="data" -->
+    <h1>IMDB <span>(http://www.imdb.com/)</span></h1>
+    <ul>
+        <li><b>API</b>: <a href="http://www.omdbapi.com/">http://www.omdbapi.com/</a></li>
+        <li>Zoek <b>Pulp Fiction</b>:
+            <a href="http://www.omdbapi.com/?t=pulp+fiction&apikey=852159f0">http://www.omdbapi.com/?t=pulp+fiction&apikey=xxx</a>
+        </li>
+        <li>Zoek <b>JSON Formatter</b> in de <a href="https://chrome.google.com/webstore/">Chrome store</a></li>
+    </ul>
+    <h2>Filter</h2>
+    <form name="imdbForm" id="imdbForm" method="get" action="http://www.omdbapi.com/">
+        <div>
+            <label for="t">Zoek titel:</label>
+            <div class="input">
+                <input type="text" name="t" id="t" required value="pulp fiction">
+            </div>
+        </div>
+        <div>
+            <label for="y">Jaar:</label>
+            <div class="input">
+                <input type="number" name="y" id="y">
+            </div>
+        </div>
+        <div>
+            <label for="plot">Plot:</label>
+            <div class="select">
+                <select name="plot" id="plot">
+                    <option value="short">korte samenvatting</option>
+                    <option value="full">volledig</option>
+                </select>
+                <i class="fa fa-angle-down fa-2"></i>
+            </div>
+            <input type="hidden" name="apikey" id="apikey" value="xxxxxx">
+            <input class="button" type="submit" name="submit" id="submit" value="zoek">
+        </div>
+    </form>
+    <div class="preloader-success">Even geduld...</div>
+    <section id="imdbInfo">
+        <h2 id="titel">Titel</h2>
+        <img id="cover" src="../assets/pixel.png" alt="IMDB cover" class="drop-shadow">
+        <p><b>Genre</b>: <span id="genre">...</span><br>
+            <b>Release</b>: <span id="release">...</span><br>
+            <b>Actors</b>: <span id="acteurs">...</span><br>
+            <b>Director</b>: <span id="director">...</span><br>
+            <b>Runtime</b>: <span id="runtime">...</span><br>
+        </p>
+        <h2>Plot</h2>
+        <p id="plotInfo">...</p>
+        <p><a href="#" id="link" target="_blank">Meer info</a></p>
+    </section>
+    <!-- InstanceEndEditable -->
+</main>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/les.js"></script>
+<!-- InstanceBeginEditable name="script" -->
+<script>
+    $(function () {
+        $('#imdbForm').submit(function (e) {
+            e.preventDefault();
+            $('#imdbInfo').hide();
+            $('.preloader-success').show();
+            var pars = $(this).serialize();
+            // alert(pars);
+            $.getJSON('http://www.omdbapi.com/?callback=?&' + pars, function (data) {
+                console.log('data', data)
+                $('#titel').text(data.Title);
+                $('#genre').text(data.Genre);
+                $('#release').text(data.Released);
+                $('#acteurs').text(data.Actors);
+                $('#director').text(data.Director);
+                $('#runtime').text(data.Runtime);
+                $('#plotInfo').text(data.Plot);
+                $('#cover').attr('src', data.Poster);
+                $('#link').attr('href', 'http://imdb.com/title/' + data.imdbID);
+                if(data.Poster) {
+                    data.Poster.length > 10 ? $('#cover').show() : $('#cover').hide();
+                }
+                $('#imdbInfo').show();
+            }).fail(function (err) {
+                console.error('error', err);
+                alert(JSON.stringify(err));
+            }).always(function () {
+                $('.preloader-success').hide()
+            });
+        });
+    });
+</script>
+<!-- InstanceEndEditable -->
+</body>
+<!-- InstanceEnd --></html>

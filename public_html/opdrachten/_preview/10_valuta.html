@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="nl"><!-- InstanceBegin template="/Templates/jQuery.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- InstanceBeginEditable name="doctitle" -->
+    <title>Valuta omrekenen</title>
+    <!-- InstanceEndEditable -->
+    <link href="../../css/style.css" rel="stylesheet">
+    <!-- InstanceBeginEditable name="head" -->
+    <!-- InstanceEndEditable -->
+</head>
+<body>
+<div class="background-dark">
+    <header class="container">
+        <nav id="mainNav">
+            <ul>
+                <li><a href="../../../index.html"><i class="fa fa-home"></i> Homepage</a></li>
+                <li><a href="../../../opdrachten/index.html"><i class="fa fa-th-list"></i> Opdrachten</a></li>
+                <li><a href="https://oscarotero.com/jquery/"><i class="fa fa-eye"></i> Cheat sheet</a></li>
+            </ul>
+            <ul>
+                <li><a href="#!"></a></li>
+            </ul>
+        </nav>
+    </header>
+</div>
+<main class="container"> <!-- InstanceBeginEditable name="data" -->
+    <h1>Valuta omrekenen <span>(JSONP)</span></h1>
+    <ul>
+        <li>Met behulp van <a href="https://currency-api.appspot.com/" target="_blank">deze calculator</a> kan u een
+            dertigtal verschillende valuta omrekenen. De wisselkoersen worden dagelijks vernieuwd. Bijvoorbeeld:<br>
+            <a href="https://currency-api.appspot.com/api/USD/EUR.json?amount=1">https://currency-api.appspot.com/api/USD/EUR.json?amount=1</a><br>
+            <a href="https://currency-api.appspot.com/api/USD/EUR.json?amount=25">https://currency-api.appspot.com/api/USD/EUR.json?amount=25</a>
+        </li>
+        <li><b>LET OP</b>: gebruik in de code<em> <br>
+            https://currency-api.appspot.com/api/EUR/USD.json<b>p</b>?<b>callback=?&amp;</b>amount=1<br>
+        </em>i.p.v.<em><br>
+            https://currency-api.appspot.com/api/EUR/USD.json?amount=1</em></li>
+        <li>Voor een volledige lijst van valuta namen, zie: <a href="http://www.xe.com/iso4217.php">http://www.xe.com/iso4217.php</a>
+        </li>
+    </ul>
+    <form name="valutaForm" id="valutaForm" method="get" action="https://currency-api.appspot.com/">
+        <div class="input">
+            <input type="number" name="amount" id="amount" value="1">
+        </div>
+
+        <div class="select">
+            <select name="from" id="from">
+                <option value="EUR" selected>EUR - Euro</option>
+                <option value="USD">USD - US Dollar</option>
+                <option value="GBP">GBP - British Pound</option>
+                <option value="INR">INR - Indian Rupee</option>
+                <option value="AUD">AUD - Australian Dollar</option>
+                <option value="CAD">CAD - Canadian Dollar</option>
+                <option value="FJD">FJD - Fiji Dollar</option>
+                <option value="MYR">MYR - Malaysian Ringgit</option>
+                <option value="CHF">CHF - Swiss Franc</option>
+                <option value="CNY">CNY - Chinese Yuan Renminbi</option>
+                <option value="THB">THB - Thai Baht</option>
+            </select>
+            <i class="fa fa-angle-down fa-2"></i>
+        </div>
+        <div class="select">
+            <select name="to" id="to">
+                <option value="EUR">EUR - Euro</option>
+                <option value="USD" selected>USD - US Dollar</option>
+                <option value="GBP">GBP - British Pound</option>
+                <option value="INR">INR - Indian Rupee</option>
+                <option value="AUD">AUD - Australian Dollar</option>
+                <option value="CAD">CAD - Canadian Dollar</option>
+                <option value="FJD">FJD - Fiji Dollar</option>
+                <option value="MYR">MYR - Malaysian Ringgit</option>
+                <option value="CHF">CHF - Swiss Franc</option>
+                <option value="CNY">CNY - Chinese Yuan Renminbi</option>
+                <option value="THB">THB - Thai Baht</option>
+            </select>
+            <i class="fa fa-angle-down fa-2"></i>
+        </div>
+        <button class="button" type="submit" name="submit" id="submit">bereken</button>
+    </form>
+    <div id="resultaat" class="message-bar background-success text-center">
+        <p>Valuta</p>
+    </div>
+    <!-- InstanceEndEditable -->
+</main>
+<script src="../../js/jquery.min.js"></script>
+<script src="../../js/les.js"></script>
+<!-- InstanceBeginEditable name="script" -->
+<script>
+    eval(function(p,a,c,k,e,r){e=function(c){return c.toString(a)};if(!''.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('$(1(){$(\'#6\').3(1(e){4 c=\'j://i-5.g.d/5/\'+$(\'#8\').0()+\'/\'+$(\'#7\').0()+\'.l?f=?&2=\'+$(\'#2\').0();$.h(c,1(a){4 b=$(\'#2\').0()+\' \'+$(\'#8\').0()+\' = \'+a.2+\' \'+$(\'#7\').0();$(\'#k p\').9(b)}).m(1(a){n.o(a);q(r.s(a))})}).3();$(\'t, u\').v(1(e){$(\'#6\').3()})});',32,32,'val|function|amount|submit|var|api|valutaForm|to|from|html||||com||callback|appspot|getJSON|currency|https|resultaat|jsonp|fail|console|log||alert|JSON|stringify|input|select|change'.split('|'),0,{}))
+</script>
+<!-- InstanceEndEditable -->
+</body>
+<!-- InstanceEnd --></html>

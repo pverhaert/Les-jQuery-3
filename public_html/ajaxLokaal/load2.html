@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="nl"><!-- InstanceBegin template="/Templates/jQuery.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- InstanceBeginEditable name="doctitle" -->
+    <title>AJAX: load (met callback functie)</title>
+    <!-- InstanceEndEditable -->
+    <link href="../css/style.css" rel="stylesheet">
+    <!-- InstanceBeginEditable name="head" -->
+    <style>
+        .foto {
+            float: right;
+            margin: 0 10px;
+            border: solid 1px lightGrey;
+            padding: 3px;
+            box-shadow: 3px 3px 3px rgba(51, 51, 51, 1);
+        }
+    </style>
+    <!-- InstanceEndEditable -->
+</head>
+<body>
+<div class="background-dark">
+    <header class="container">
+        <nav id="mainNav">
+            <ul>
+                <li><a href="../../index.html"><i class="fa fa-home"></i> Homepage</a></li>
+                <li><a href="../../opdrachten/index.html"><i class="fa fa-th-list"></i> Opdrachten</a></li>
+                <li><a href="https://oscarotero.com/jquery/"><i class="fa fa-eye"></i> Cheat sheet</a></li>
+            </ul>
+            <ul>
+                <li><a href="#!"></a></li>
+            </ul>
+        </nav>
+    </header>
+</div>
+<main class="container"> <!-- InstanceBeginEditable name="data" -->
+    <h1>Load <span>(met callback functie)</span></h1>
+    <ul class="tabNav">
+        <li><a href="#!" class="active">Anjer</a></li>
+        <li><a href="#!">Lelie</a></li>
+        <li><a href="#!">Narcis</a></li>
+        <li><a href="#!">Roos</a></li>
+        <li><a href="#!">Tulp</a></li>
+    </ul>
+    <section id="data" class="message-bar background-gray-light"></section>
+    <!-- InstanceEndEditable -->
+</main>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/les.js"></script>
+<!-- InstanceBeginEditable name="script" -->
+<script>
+    $(function () {
+        $('#data').load('bloemen.html article', function () {
+            $('#data article:not(:first)').hide();
+        });
+        $('.tabNav a').click(function () {
+            $('.tabNav a').removeClass('active');
+            $(this).addClass('active');
+            var id = '#' + $(this).text();
+
+            // versie 1
+            // $('#data article').hide().filter(id).show();
+
+            // versie 2
+            if ($(id).is(':hidden')) {
+                $('#data article:visible').slideUp('slow', function () {
+                    $(id).slideDown('slow');
+                });
+            }
+        });
+    });
+</script>
+<!-- InstanceEndEditable -->
+</body>
+<!-- InstanceEnd --></html>

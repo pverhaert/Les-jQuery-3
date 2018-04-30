@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="nl"><!-- InstanceBegin template="/Templates/jQuery.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- InstanceBeginEditable name="doctitle" -->
+    <title>Constructor functie met default eigenschappen</title>
+    <!-- InstanceEndEditable -->
+    <link href="../css/style.css" rel="stylesheet">
+    <!-- InstanceBeginEditable name="head" -->
+    <!-- InstanceEndEditable -->
+</head>
+<body>
+<div class="background-dark">
+    <header class="container">
+        <nav id="mainNav">
+            <ul>
+                <li><a href="../../index.html"><i class="fa fa-home"></i> Homepage</a></li>
+                <li><a href="../../opdrachten/index.html"><i class="fa fa-th-list"></i> Opdrachten</a></li>
+                <li><a href="https://oscarotero.com/jquery/"><i class="fa fa-eye"></i> Cheat sheet</a></li>
+            </ul>
+            <ul>
+                <li><a href="#!"></a></li>
+            </ul>
+        </nav>
+    </header>
+</div>
+<main class="container"> <!-- InstanceBeginEditable name="data" -->
+    <h1>Constructor functie met default eigenschappen</h1>
+    <section>
+        <h2>Lorem</h2>
+        <p>Velit esse cillum dolore excepteur sint occaecat ut labore et dolore magna aliqua. Quis nostrud exercitation
+            consectetur adipisicing elit, eu fugiat nulla pariatur. Sunt in culpa qui officia deserunt ullamco laboris
+            nisi. <strong>Ut labore et dolore magna aliqua</strong>. Cupidatat non proident, quis nostrud exercitation
+            eu fugiat nulla pariatur.</p>
+        <p>Ut enim ad minim veniam, <strong>consectetur</strong> adipisicing elit, ut labore et dolore magna aliqua.
+            Ullamco laboris nisi. Sed do eiusmod tempor incididunt lorem ipsum dolor sit amet, velit esse cillum dolore.
+        </p>
+    </section>
+    <section>
+        <h2>Ipsum</h2>
+        <p>Eu fugiat nulla pariatur. Cupidatat non proident, qui officia deserunt mollit anim id est laborum. Excepteur
+            sint occaecat ut enim ad minim veniam, sed do eiusmod tempor incididunt.Quis nostrud exercitation duis aute
+            irure dolor mollit anim id est laborum. </p>
+        <p>Sunt in culpa sed do<strong> eiusmod tempor incididunt cupidatat </strong>non proident. Excepteur sint
+            occaecat qui officia deserunt. Ullamco laboris nisi duis aute irure dolor ut enim ad minim veniam. Ut
+            aliquip ex ea commodo consequat.</p>
+    </section>
+    <hr>
+    <section id="typeTest">
+        <h3>Datatype controleren met typeof()</h3>
+        <ul>
+            <li>typeof(Banner)</li>
+            <li>typeof(banner1)</li>
+            <li>typeof(banner2)</li>
+            <li>typeof(banner3)</li>
+        </ul>
+    </section>
+
+    <!-- InstanceEndEditable -->
+</main>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/les.js"></script>
+<!-- InstanceBeginEditable name="script" -->
+<script>
+    var auto = function (kleur) {
+        this.kleur = kleur;
+    };
+    $(function () {
+        // constructor functie voor het banner object
+        var Banner = function () {
+            this.tag = 'h2';
+            this.bgKleur = 'lightGreen';
+            this.kleur = 'red';
+            this.font = '';
+            this.fontSize = '';
+            this.align = '';
+            this.border = '';
+            this.tekenBanner = function () {
+                $(this.tag).css({
+                    'background-color': this.bgKleur,
+                    'color': this.kleur,
+                    'font-family': this.font,
+                    'font-size': this.fontSize,
+                    'text-align': this.align,
+                    'border': this.border
+                });
+            };
+            // Deze for-lus hoeft u voorlopig nog niet te begrijpen.
+            for (var i in arguments[0]) {
+                this.i = arguments[0][i];
+            }
+        };
+        // banner 1
+        var banner1 = new Banner();
+        banner1.tekenBanner();
+
+        // banner 2
+        var banner2 = new Banner({tag: 'p strong', bgKleur: 'yellow'});
+        banner2.tekenBanner();
+
+        // banner 3
+        var banner3 = new Banner();
+        banner3.tag = 'h1';
+        banner3.bgKleur = 'orange';
+        banner3.align = 'center';
+        banner3.border = 'solid 3px blue';
+        banner3.tekenBanner();
+
+        // Datatype controleren
+        // Dit script hoeft u voorlopig nog niet te begrijpen.
+        $('#typeTest li').each(function (index, element) {
+            var $txt = $.trim($(this).text());
+            if ($txt.length > 0) {
+                var $res = eval($txt);
+                $(this).append(' = ' + $res);
+            }
+        });
+    });
+</script>
+<!-- InstanceEndEditable -->
+</body>
+<!-- InstanceEnd --></html>

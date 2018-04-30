@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="nl"><!-- InstanceBegin template="/Templates/jQuery.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- InstanceBeginEditable name="doctitle" -->
+    <title>Elementen toevoegen (rond de selector)</title>
+    <!-- InstanceEndEditable -->
+    <link href="../css/style.css" rel="stylesheet">
+    <!-- InstanceBeginEditable name="head" -->
+    <style>
+        .groen {
+            color: green;
+        }
+        .drop-shadow {
+            border: 1px solid grey;
+            box-shadow: 0 0 5px rgba(0 ,0, 0, .6);
+            padding: 10px;
+        }
+    </style>
+    <!-- InstanceEndEditable -->
+</head>
+<body>
+<div class="background-dark">
+    <header class="container">
+        <nav id="mainNav">
+            <ul>
+                <li><a href="../../index.html"><i class="fa fa-home"></i> Homepage</a></li>
+                <li><a href="../../opdrachten/index.html"><i class="fa fa-th-list"></i> Opdrachten</a></li>
+                <li><a href="https://oscarotero.com/jquery/"><i class="fa fa-eye"></i> Cheat sheet</a></li>
+            </ul>
+            <ul>
+                <li><a href="#!"></a></li>
+            </ul>
+        </nav>
+    </header>
+</div>
+<main class="container"> <!-- InstanceBeginEditable name="data" -->
+    <h1>Elementen toevoegen <span>(rond de selector)</span></h1>
+    <section id="sect1">
+        <h2>wrap() en unwrap() methodes</h2>
+        <p>
+            <input class="button" type="button" id="around1" value="wrap()">
+            <input class="button" type="button" id="around2" value="unwrap()">
+        </p>
+        <ul id="lijst1">
+            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce porttitor consequat lacu.</li>
+            <li> Et malesuada massa fermentum nec.</li>
+            <li>Quisque at eros in enim semper tincidunt. Nunc sit amet turpis metus.</li>
+        </ul>
+    </section>
+    <section id="sect2">
+        <h2>wrapAll() methode</h2>
+        <p>
+            <input class="button" type="button" id="around3" value="wrapAll()">
+        </p>
+        <p class="groen">Item 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce porttitor consequat
+            lacu.</p>
+        <p> Item 2: Et malesuada massa fermentum nec.</p>
+        <p class="groen">Item 3: Quisque at eros in enim semper tincidunt. Nunc sit amet turpis metus. </p>
+    </section>
+    <section id="sect3">
+        <h2>wrapInner() methode</h2>
+        <p>
+            <input class="button" type="button" id="around4" value="wrapInner()">
+        </p>
+        <p class="groen">Item 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce porttitor consequat
+            lacu.</p>
+        <p> Item 2: Et malesuada massa fermentum nec.</p>
+        <p class="groen">Item 3: Quisque at eros in enim semper tincidunt. Nunc sit amet turpis metus. </p>
+    </section>
+
+    <!-- InstanceEndEditable -->
+</main>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/les.js"></script>
+<!-- InstanceBeginEditable name="script" -->
+<script>
+    $(function () {
+        //warp() en unwrap()
+        $('#around1').click(function () {
+            $('#lijst1').wrap('<div class="drop-shadow"></div>');
+        });
+        $('#around2').click(function () {
+            $('#lijst1').unwrap();
+        });
+        // wrapAll()
+        $('#around3').click(function () {
+            $('#sect2 p.groen').wrapAll('<div class="drop-shadow"></div>');
+        });
+        // wrapInner()
+        $('#around4').click(function () {
+            $('#sect3 p.groen').wrapInner('<span class="drop-shadow"></span>');
+        });
+    });
+</script>
+<!-- InstanceEndEditable -->
+</body>
+<!-- InstanceEnd --></html>

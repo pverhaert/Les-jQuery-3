@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="nl"><!-- InstanceBegin template="/Templates/jQuery.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- InstanceBeginEditable name="doctitle" -->
+    <title>Links met QR-code</title>
+    <!-- InstanceEndEditable -->
+    <link href="../css/style.css" rel="stylesheet">
+    <!-- InstanceBeginEditable name="head" -->
+    <!-- InstanceEndEditable -->
+</head>
+<body>
+<div class="background-dark">
+    <header class="container">
+        <nav id="mainNav">
+            <ul>
+                <li><a href="../../index.html"><i class="fa fa-home"></i> Homepage</a></li>
+                <li><a href="../../opdrachten/index.html"><i class="fa fa-th-list"></i> Opdrachten</a></li>
+                <li><a href="https://oscarotero.com/jquery/"><i class="fa fa-eye"></i> Cheat sheet</a></li>
+            </ul>
+            <ul>
+                <li><a href="#!"></a></li>
+            </ul>
+        </nav>
+    </header>
+</div>
+<main class="container"> <!-- InstanceBeginEditable name="data" -->
+    <h1>Links met QR-code</h1>
+    <ul>
+        <li>Bereken voor elke link een korte URL via <a href="http://goo.gl/">Google url shortener</a></li>
+        <li>Voeg de verkorte URL aan de a-tag toe via het<b> data-url</b> attrubuut.</li>
+        <li>Lees met jQuery de short URL uit en genereer de bijbehorende QR-code. Bijvoorbeeld:<br>
+            <b>ShortURL</b> Thomas More website: <a href="http://goo.gl/sgDj5J">http://goo.gl/sgDj5J</a><br>
+            <b>QR-code</b> Thomas More website: <a href="http://goo.gl/sgDj5J.qr">http://goo.gl/sgDj5J<b>.qr</b></a>
+            (.qr toevoegen aan
+            de URL)
+        </li>
+        <li>De link die de QR-code genereert is een afbeelding. Gebruik deze link als source voor de
+            afbeelding <b>#QRcode</b>.
+        </li>
+        <li>Verplaats de link op de a-tag rond de afbeelding<b> #QRcode</b>.</li>
+    </ul>
+    <h2>Links</h2>
+    <a href="#!" target="_blank" style="float: right;">
+        <img src="../../assets/pixel.png" id="QRcode" alt="QR-code">
+    </a>
+    <ul id="links">
+        <li><a data-url="http://goo.gl/sgDj5J" href="http://www.thomasmore.be/">http://www.thomasmore.be/</a></li>
+        <li><a data-url="http://goo.gl/WHvp" href="http://jquery.com/">http://jquery.com/</a></li>
+        <li><a data-url="http://goo.gl/GBPV" href="http://jquerymobile.com/">http://jquerymobile.com/</a></li>
+    </ul>
+    <!-- InstanceEndEditable -->
+</main>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/les.js"></script>
+<!-- InstanceBeginEditable name="script" -->
+<script>
+    $(function () {
+        // script hier
+    });
+</script>
+<!-- InstanceEndEditable -->
+</body>
+<!-- InstanceEnd --></html>

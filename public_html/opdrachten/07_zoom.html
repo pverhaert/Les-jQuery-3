@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="nl"><!-- InstanceBegin template="/Templates/jQuery.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- InstanceBeginEditable name="doctitle" -->
+    <title>Image zoom</title>
+    <!-- InstanceEndEditable -->
+    <link href="../css/style.css" rel="stylesheet">
+    <!-- InstanceBeginEditable name="head" -->
+    <style>
+        #album {
+            height: 350px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #album li {
+            list-style: none;
+            margin: 5px;
+        }
+
+        #album img {
+            display: none;
+            border: solid 1px black;
+            box-shadow: 3px 3px 3px rgba(51, 51, 51, 1);
+            cursor: move;
+        }
+    </style>
+    <!-- InstanceEndEditable -->
+</head>
+<body>
+<div class="background-dark">
+    <header class="container">
+        <nav id="mainNav">
+            <ul>
+                <li><a href="../../index.html"><i class="fa fa-home"></i> Homepage</a></li>
+                <li><a href="../../opdrachten/index.html"><i class="fa fa-th-list"></i> Opdrachten</a></li>
+                <li><a href="https://oscarotero.com/jquery/"><i class="fa fa-eye"></i> Cheat sheet</a></li>
+            </ul>
+            <ul>
+                <li><a href="#!"></a></li>
+            </ul>
+        </nav>
+    </header>
+</div>
+<main class="container"> <!-- InstanceBeginEditable name="data" -->
+    <h1>Image zoom</h1>
+    <ul>
+        <li>Bepaal de breedte van elke afbeelding en bewaar de waarde in het width-attribuut.</li>
+        <li>Toon alle afbeeldingen 50% kleiner en 70% transparant.</li>
+        <li>Mouseenter: grootte 100%, 0% transparant.</li>
+        <li>Mouseleave: ga terug naar vorige toestand.</li>
+        <li><b>LET OP</b>: voer de bewerkingen pas uit zodra alle afbeeldingen zijn ingelezen.<br>
+            Dus niet : <b>$(function()</b> {...});<br>
+            Maar wel: <b>$(window).on('load', function()</b> {...});
+        </li>
+    </ul>
+    <ul id="album">
+        <li><img src="https://picsum.photos/200/300" alt="Foto 1"></li>
+        <li><img src="https://picsum.photos/120/300" alt="Foto 2"></li>
+        <li><img src="https://picsum.photos/170/300" alt="Foto 3"></li>
+        <li><img src="https://picsum.photos/220/300" alt="Foto 4"></li>
+        <li><img src="https://picsum.photos/80/300" alt="Foto 5"></li>
+    </ul>
+    <!-- InstanceEndEditable -->
+</main>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/les.js"></script>
+<!-- InstanceBeginEditable name="script" -->
+
+<script>
+    $(window).on('load', function () {
+        $('#album img').show();
+        //
+    });
+</script>
+<!-- InstanceEndEditable -->
+</body>
+<!-- InstanceEnd --></html>

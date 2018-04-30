@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="nl"><!-- InstanceBegin template="/Templates/jQuery.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- InstanceBeginEditable name="doctitle" -->
+    <title>Mouseover en mousenter methodes</title>
+    <!-- InstanceEndEditable -->
+    <link href="../css/style.css" rel="stylesheet">
+    <!-- InstanceBeginEditable name="head" -->
+    <style>
+        #overEnter {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        #overEnter section {
+            width: 49%;
+        }
+
+        #overEnter div {
+            padding: 15px;
+            border: solid 1px black;
+        }
+
+        #div1, #div4 {
+            background-color: orange;
+        }
+
+        #div2, #div5 {
+            background-color: gold;
+        }
+
+        #div3, #div6 {
+            background-color: white;
+        }
+
+        #over, #enter {
+            color: red;
+        }
+    </style>
+    <!-- InstanceEndEditable -->
+</head>
+<body>
+<div class="background-dark">
+    <header class="container">
+        <nav id="mainNav">
+            <ul>
+                <li><a href="../../index.html"><i class="fa fa-home"></i> Homepage</a></li>
+                <li><a href="../../opdrachten/index.html"><i class="fa fa-th-list"></i> Opdrachten</a></li>
+                <li><a href="https://oscarotero.com/jquery/"><i class="fa fa-eye"></i> Cheat sheet</a></li>
+            </ul>
+            <ul>
+                <li><a href="#!"></a></li>
+            </ul>
+        </nav>
+    </header>
+</div>
+<main class="container"> <!-- InstanceBeginEditable name="data" -->
+    <h1>Mouseover en mouseenter methodes</h1>
+    <article id="overEnter">
+        <section>
+            <h2>Mouseover</h2>
+            <p id="over">&nbsp;</p>
+            <div id="div1">
+                <div id="div2">
+                    <div id="div3">
+                        <p>In reprehenderit in voluptate lorem ipsum dolor sit amet, ut enim ad minim veniam. Velit esse
+                            cillum dolore sunt in culpa ut aliquip ex ea commodo consequat.</p>
+                        <p>Quis nostrud exercitation duis aute irure dolor mollit anim id est laborum.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h2>Mouseenter</h2>
+            <p id="enter">&nbsp;</p>
+            <div id="div4">
+                <div id="div5">
+                    <div id="div6">
+                        <p>In reprehenderit in voluptate lorem ipsum dolor sit amet, ut enim ad minim veniam. Velit esse
+                            cillum dolore sunt in culpa ut aliquip ex ea commodo consequat.</p>
+                        <p>Quis nostrud exercitation duis aute irure dolor mollit anim id est laborum.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </article>
+    <!-- InstanceEndEditable -->
+</main>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/les.js"></script>
+<!-- InstanceBeginEditable name="script" -->
+<script>
+    $(function () {
+        var i = 0
+        $('#div1').mouseover(function () {
+            ++i;
+            $('#over').text('mouseover: ' + i);
+        });
+        var j = 0
+        $('#div4').mouseenter(function () {
+            ++j;
+            $('#enter').text('mouseenter: ' + j);
+        });
+    });
+</script>
+<!-- InstanceEndEditable -->
+</body>
+<!-- InstanceEnd --></html>

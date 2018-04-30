@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="nl"><!-- InstanceBegin template="/Templates/jQuery.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- InstanceBeginEditable name="doctitle" -->
+    <title>jQuery: stadsinfo</title>
+    <!-- InstanceEndEditable -->
+    <link href="../css/style.css" rel="stylesheet">
+    <!-- InstanceBeginEditable name="head" -->
+    <style>
+        #stadslijst, #stadInfo {
+            display: none;
+        }
+        #stadslijst {
+            float: left;
+            width: 200px;
+            border: dotted 1px grey;
+            border-bottom: none;
+            font-size: 80%;
+            margin-bottom: 10px;
+        }
+
+        #stadslijst ul {
+            padding: 0;
+            margin: 0;
+        }
+
+        #stadslijst li {
+            list-style: none;
+            color: #872651;
+            padding: 5px;
+            margin-bottom: 0;
+            border-bottom: dotted 1px grey;
+            cursor: pointer;
+        }
+
+        #stadslijst li:hover {
+            background-color: #51606F;
+            color: white;
+        }
+
+        #stadInfo {
+            padding-left: 220px;
+        }
+
+        #stadInfo span {
+            color: #872651;
+            font-style: italic;
+        }
+
+        #map {
+            float: right;
+            border: 1px solid grey;
+        }
+    </style>
+    <!-- InstanceEndEditable -->
+</head>
+<body>
+<div class="background-dark">
+    <header class="container">
+        <nav id="mainNav">
+            <ul>
+                <li><a href="../../index.html"><i class="fa fa-home"></i> Homepage</a></li>
+                <li><a href="../../opdrachten/index.html"><i class="fa fa-th-list"></i> Opdrachten</a></li>
+                <li><a href="https://oscarotero.com/jquery/"><i class="fa fa-eye"></i> Cheat sheet</a></li>
+            </ul>
+            <ul>
+                <li><a href="#!"></a></li>
+            </ul>
+        </nav>
+    </header>
+</div>
+<main class="container"> <!-- InstanceBeginEditable name="data" -->
+    <h1>Stadsinfo <span>(http://geobytes.com/)</span></h1>
+    <ul>
+        <li>
+            <b>API GeoBytes</b>: <a href="http://www.geobytes.com/free-ajax-cities-jsonp-api.htm">http://www.geobytes.com/free-ajax-cities-jsonp-api.htm</a><br>
+            Voorbeeld stadslijst:
+            <a href="http://gd.geobytes.com/AutoCompleteCity?q=antw">http://gd.geobytes.com/AutoCompleteCity?q=<b>antw</b></a><br>
+            Voorbeeld detail:
+            <a href="http://gd.geobytes.com/GetCityDetails?fqcn=Antwerp,+AN,+Belgium">http://gd.geobytes.com/GetCityDetails?fqcn=<b>Antwerp,+AN,+Belgium</b></a>
+        </li>
+        <li><b>Yandex API</b>: <a
+                href="https://tech.yandex.com/maps/doc/staticapi/1.x/dg/concepts/input_params-docpage/">https://tech.yandex.com/maps/doc/staticapi/1.x/dg/concepts/input_params-docpage/</a><br>
+            Voorbeeld Antwerpen: <a
+                    href="https://static-maps.yandex.ru/1.x/?lang=en-US&z=14&l=map&size=640,300&ll=4.417,51.217&pt=4.417,51.217,pm2rdl1">https://static-maps.yandex.ru/1.x/?lang=en-US&z=14&l=map&size=640,300&ll=4.988608,51.168955&pt=4.988608,51.168955,pm2rdl1</a>
+
+    </ul>
+    <h2>Filter</h2>
+    <form name="geoForm" id="geoForm" method="get" action="http://www.geobytes.com/">
+        <div>
+            <label for="q">Zoek stad:</label>
+            <div class="input">
+                <input type="text" name="q" id="q" value="antw">
+            </div>
+        </div>
+    </form>
+    <aside id="stadslijst">
+        <ul>
+        </ul>
+    </aside>
+    <section id="stadInfo">
+        <img id="map" src="../assets/pixel.png" alt="Google map">
+        <h2>Stad</h2>
+        <p>Land: <span id="land">...</span><br>
+            Aantal inwoners: <span id="inwoners">...</span><br>
+            Hoofdstad: <span id="hoofdstad">...</span></p>
+        <p>Latitude: <span id="lat">...</span><br>
+            Longitude: <span id="lng">...</span>
+        </p>
+        <p>Munteenheid: <span id="munt">...</span></p>
+        <p>Tijdzone: <span id="tijdzone">...</span></p>
+    </section>
+
+    <!-- InstanceEndEditable -->
+</main>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/les.js"></script>
+<!-- InstanceBeginEditable name="script" -->
+<script>
+    $(function () {
+
+        $('#geoForm').submit(function (e) {
+            e.preventDefault();
+        });
+
+        // stadslijst
+        $('#q').keyup(function (e) {
+            if ($('#q').val().length > 2) {
+                var pars = $('#geoForm').serialize();
+                $.getJSON('http://gd.geobytes.com/AutoCompleteCity?callback=?&' + pars, function (data) {
+                    $('#stadslijst li').remove();
+                    $.each(data, function (index, value) {
+                        $('#stadslijst ul').append('<li>' + this + '</li>');
+                    });
+                    $('#stadslijst li:first').text() == '' ? $('#stadslijst, #stadInfo').hide() : $('#stadslijst').show();
+                });
+            }
+        }).keyup();
+        // detail van de stad
+        $('#stadslijst ul').on('mouseenter', 'li', function () {
+            var stad = $(this).text();
+            $.getJSON('http://gd.geobytes.com/GetCityDetails?callback=?&fqcn=' + stad, function (data) {
+                $('#stadInfo h2').text(data.geobytescity);
+                $('#land').text(data.geobytescountry);
+                $('#inwoners').text(data.geobytespopulation);
+                $('#hoofdstad').text(data.geobytescapital);
+                $('#tijdzone').text(data.geobytestimezone);
+                $('#munt').text(data.geobytescurrency);
+                var lat = data.geobyteslatitude;
+                $('#lat').text(lat);
+                var lng = data.geobyteslongitude;
+                $('#lng').text(lng);
+                var lngLat = lng + ',' +lat;
+                var mapURL = 'https://static-maps.yandex.ru/1.x/?lang=en-US&z=12&l=map&size=400,400&ll=' + lngLat + '&pt=' + lngLat + ',pm2rdl1';
+                $('#map').attr('src', mapURL);
+            });
+            $('#stadInfo').show();
+        });
+    });
+</script>
+<!-- InstanceEndEditable -->
+</body>
+<!-- InstanceEnd --></html>

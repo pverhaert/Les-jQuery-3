@@ -1,0 +1,19 @@
+{
+  "adresboek": [
+    {
+      "id": 1,
+      "voornaam": "Lorem",
+      "naam": "Ipsum",
+      "email": "lorem.ipsum@example.com"
+    },
+    {
+      "id": 2,
+      "voornaam": "Morbi",
+      "naam": "Dui",
+      "email": "morbi.dui@example.com"
+    },
+    {
+      ...
+    }
+  ]
+}

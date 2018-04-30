@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="nl"><!-- InstanceBegin template="/Templates/jQuery.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- InstanceBeginEditable name="doctitle" -->
+    <title>Functies</title>
+    <!-- InstanceEndEditable -->
+    <link href="../css/style.css" rel="stylesheet">
+    <!-- InstanceBeginEditable name="head" -->
+    <!-- InstanceEndEditable -->
+</head>
+<body>
+<div class="background-dark">
+    <header class="container">
+        <nav id="mainNav">
+            <ul>
+                <li><a href="../../index.html"><i class="fa fa-home"></i> Homepage</a></li>
+                <li><a href="../../opdrachten/index.html"><i class="fa fa-th-list"></i> Opdrachten</a></li>
+                <li><a href="https://oscarotero.com/jquery/"><i class="fa fa-eye"></i> Cheat sheet</a></li>
+            </ul>
+            <ul>
+                <li><a href="#!"></a></li>
+            </ul>
+        </nav>
+    </header>
+</div>
+<main class="container"> <!-- InstanceBeginEditable name="data" -->
+    <h1>Functies</h1>
+
+    <h2>Functie zonder parameters</h2>
+    <button class="button" id="knop1" onClick="toonKnop1()">knop 1</button>
+
+    <h2>Functie met parameters</h2>
+    <button class="button" id="knop2" onClick="toonKnopX('knop 2')">knop 2</button>
+    <button class="button" id="knop3" onClick="toonKnopX('knop 3')">knop 3</button>
+
+    <h2>Functie met return-waarde</h2>
+    <script>
+        // Functie met return-waarde
+        function berekenFaculteit(getal) {
+            resultaat = 1;
+            for (i = 1; i <= getal; i++) {
+                resultaat = resultaat * i;
+            }
+            return "Faculteit van " + getal + " = " + resultaat;
+        }
+    </script>
+    <p>
+        <script>document.write(berekenFaculteit(2)); </script><br>
+        <script>document.write(berekenFaculteit(5)); </script><br>
+        <script>document.write(berekenFaculteit(10)); </script>
+    </p>
+
+    <h2>Anonieme functie</h2>
+    <button class="button" id="knop4" onClick="drukKnop('knop 4')">knop 4</button>
+    <button class="button" id="knop5" onClick="drukKnop('knop 5')">knop 5</button>
+    <!-- InstanceEndEditable -->
+</main>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/les.js"></script>
+<!-- InstanceBeginEditable name="script" -->
+<script>
+    // Functie zonder parameters
+    function toonKnop1() {
+        alert("U hebt op knop1 geklikt.");
+    }
+
+    // Functie met parameters
+    function toonKnopX(knop) {
+        alert("U hebt op " + knop + " geklikt.");
+    }
+
+    // Anonieme functie
+    var drukKnop = function (knop) {
+        alert("U hebt op " + knop + " geklikt.");
+    }
+</script>
+<!-- InstanceEndEditable -->
+</body>
+<!-- InstanceEnd --></html>

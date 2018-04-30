@@ -1,0 +1,43 @@
+@mixin card($color: $brand-dark) {
+  display: flex;
+  flex-direction: column;
+  word-wrap: break-word;
+  background-clip: border-box;
+  border: solid 1px $color;
+  border-radius: $radius;
+  margin-bottom: 20px;
+
+  .card-header {
+    padding: $base-pading/2;
+    margin: 0;
+    background-color: lighten($color, 5%);
+    color: white;
+    border-bottom: solid 1px $color;
+    font-weight: bold;
+    font-size: $font-size-base;
+    line-height: $line-height-base;
+  }
+  .card-body {
+    padding: $base-pading/2;
+  }
+}
+
+.card {
+  @include card();
+}
+
+.card-success {
+  @include card($color-success);
+}
+
+.card-info {
+  @include card($color-info);
+}
+
+.card-warning {
+  @include card($color-warning);
+}
+
+.card-error {
+  @include card($color-error);
+}

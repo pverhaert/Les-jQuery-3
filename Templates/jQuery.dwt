@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="nl">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- TemplateBeginEditable name="doctitle" -->
+    <title>jQuery</title>
+    <!-- TemplateEndEditable -->
+    <link href="../public_html/css/style.css" rel="stylesheet">
+    <!-- TemplateBeginEditable name="head" -->
+    <!-- TemplateEndEditable -->
+</head>
+<body>
+<div class="background-dark">
+    <header class="container">
+        <nav id="mainNav">
+            <ul>
+                <li><a href="../index.html" id="h"><i class="fa fa-home"></i> Homepage</a></li>
+                <li><a href="../opdrachten/index.html"><i class="fa fa-th-list"></i> Opdrachten</a></li>
+                <li><a href="https://oscarotero.com/jquery/"><i class="fa fa-eye"></i> Cheat sheet</a></li>
+            </ul>
+            <ul>
+                <li><a href="#!"></a></li>
+            </ul>
+        </nav>
+    </header>
+</div>
+<main class="container"> <!-- TemplateBeginEditable name="data" -->
+    <h1>Heading1</h1>
+    <section>
+        <h2>Heading2</h2>
+        <p>Ullamco laboris nisi quis nostrud exercitation ut aliquip ex ea commodo consequat. Sunt in culpa cupidatat
+            non proident, eu fugiat nulla pariatur. Lorem ipsum dolor sit amet, in reprehenderit in voluptate ut enim ad
+            minim veniam. Ut aliquip ex ea commodo consequat.</p>
+        <p>Consectetur adipisicing elit, duis aute irure dolor ut labore et dolore magna aliqua. Qui officia deserunt in
+            reprehenderit in voluptate quis nostrud exercitation. Excepteur sint occaecat. Ut aliquip ex ea commodo
+            consequat.</p>
+        <p>Duis aute irure dolor excepteur sint occaecat in reprehenderit in voluptate. Sed do eiusmod tempor incididunt
+            ut labore et dolore magna aliqua. Qui officia deserunt ut aliquip ex ea commodo consequat. Cupidatat non
+            proident, velit esse cillum dolore ullamco laboris nisi.</p>
+    </section>
+    <!-- TemplateEndEditable -->
+</main>
+<script src="../public_html/js/jquery.min.js"></script>
+<script src="../public_html/js/les.js"></script>
+<!-- TemplateBeginEditable name="script" -->
+<script>
+    $(function () {
+        // script hier
+    });
+</script>
+<!-- TemplateEndEditable -->
+</body>
+</html>

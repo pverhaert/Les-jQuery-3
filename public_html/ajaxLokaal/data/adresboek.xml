@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<adresboek>
+    <adres id="1">
+        <voornaam>Lorem</voornaam>
+        <naam>Ipsum</naam>
+        <email>lorem.ipsum@example.com</email>
+    </adres>
+    <adres id="2">
+        <voornaam>Morbi</voornaam>
+        <naam>Dui</naam>
+        <email>morbi.dui@example.com</email>
+    </adres>
+    <adres id="3"> ... </adres>
+</adresboek>

@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="nl"><!-- InstanceBegin template="/Templates/jQuery.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- InstanceBeginEditable name="doctitle" -->
+    <title>Elementen toevoegen (binnen de selector)</title>
+    <!-- InstanceEndEditable -->
+    <link href="../css/style.css" rel="stylesheet">
+    <!-- InstanceBeginEditable name="head" -->
+    <style>
+        .groen {
+            color: green;
+        }
+    </style>
+    <!-- InstanceEndEditable -->
+</head>
+<body>
+<div class="background-dark">
+    <header class="container">
+        <nav id="mainNav">
+            <ul>
+                <li><a href="../../index.html"><i class="fa fa-home"></i> Homepage</a></li>
+                <li><a href="../../opdrachten/index.html"><i class="fa fa-th-list"></i> Opdrachten</a></li>
+                <li><a href="https://oscarotero.com/jquery/"><i class="fa fa-eye"></i> Cheat sheet</a></li>
+            </ul>
+            <ul>
+                <li><a href="#!"></a></li>
+            </ul>
+        </nav>
+    </header>
+</div>
+<main class="container"> <!-- InstanceBeginEditable name="data" -->
+    <h1>Elementen toevoegen <span>(binnen de selector)</span></h1>
+    <section id="sect1">
+        <h2>html() en text() methodes</h2>
+        <p>
+            <input class="button" type="button" id="inside1" value="html()">
+            <input class="button" type="button" id="inside2" value="text()">
+        </p>
+        <p id="p1">Lorem ipsum <b>dolor sit amet, consectetur adipiscing</b> elit. Fusce<em> porttitor
+            consequat lacus, et malesuada</em> massa fermentum nec.
+            <mark> at eros in enim semper tincidunt</mark>
+            . Nunc sit amet turpis metus.
+        </p>
+        <p id="p2">&nbsp;</p>
+    </section>
+    <section id="sect2">
+        <h2>append() en prepend() methodes</h2>
+        <p>
+            <input class="button" type="button" id="inside3" value="append()">
+            <input class="button" type="button" id="inside4" value="prepend()">
+        </p>
+        <p class="groen">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <p>Fusce porttitor consequat lacus, et malesuada massa fermentum nec.</p>
+    </section>
+    <section id="sect3">
+        <h2>appendTo() en prependTo() methodes</h2>
+        <p>
+            <input class="button" type="button" id="inside5" value="appendTo()">
+            <input class="button" type="button" id="inside6" value="prependTo()">
+        </p>
+        <p class="groen" id="p4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+        <p>Fusce porttitor consequat lacus, et malesuada massa fermentum nec. </p>
+    </section>
+
+    <!-- InstanceEndEditable -->
+</main>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/les.js"></script>
+<!-- InstanceBeginEditable name="script" -->
+<script>
+    $(function () {
+        //html() en text()
+        data = $('#p1').html();
+        $('#inside1').click(function () {
+            $('#p2').html(data);
+        });
+        $('#inside2').click(function () {
+            $('#p2').text(data);
+        });
+
+        // append() en prepent()
+        $('#inside3').click(function () {
+            $('#sect2 p.groen').append('<b> *** append *** </b>');
+        });
+        $('#inside4').click(function () {
+            $('#sect2 p.groen').prepend('<b> *** prepend *** </b>');
+        });
+
+        // appendTo() en prepentTo()
+        $('#inside5').click(function () {
+            $('<b> *** appendTo *** </b>').appendTo('#sect3 p.groen');
+        });
+        $('#inside6').click(function () {
+            $('<b> *** prependTo *** </b>').prependTo('#sect3 p.groen');
+        });
+    });
+</script>
+<!-- InstanceEndEditable -->
+</body>
+<!-- InstanceEnd --></html>

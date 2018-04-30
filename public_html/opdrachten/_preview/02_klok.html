@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="nl"><!-- InstanceBegin template="/Templates/jQuery.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- InstanceBeginEditable name="doctitle" -->
+    <title>Digitale klok</title>
+    <!-- InstanceEndEditable -->
+    <link href="../../css/style.css" rel="stylesheet">
+    <!-- InstanceBeginEditable name="head" -->
+    <link href='http://fonts.googleapis.com/css?family=Iceland' rel='stylesheet' type='text/css'>
+    <style>
+        #klok {
+            text-align: center;
+        }
+
+        #klok p {
+            font-family: 'Iceland', Verdana, Geneva, sans-serif;
+            font-size: 3rem;
+            color: #C33;
+        }
+    </style>
+    <!-- InstanceEndEditable -->
+</head>
+<body>
+<div class="background-dark">
+    <header class="container">
+        <nav id="mainNav">
+            <ul>
+                <li><a href="../../../index.html"><i class="fa fa-home"></i> Homepage</a></li>
+                <li><a href="../../../opdrachten/index.html"><i class="fa fa-th-list"></i> Opdrachten</a></li>
+                <li><a href="https://oscarotero.com/jquery/"><i class="fa fa-eye"></i> Cheat sheet</a></li>
+            </ul>
+            <ul>
+                <li><a href="#!"></a></li>
+            </ul>
+        </nav>
+    </header>
+</div>
+<main class="container"> <!-- InstanceBeginEditable name="data" -->
+    <h1>Digitale klok</h1>
+    <input type="range" min="2" max="10" step=".5" value="3" id="fontSize"
+           oninput="showFontSize.value = fontSize.value + 'rem'">
+    <output id="showFontSize" for="fontSize">3rem</output>
+    <section id="klok" class="message-bar background-gray-light">
+        <p>Even geduld ...</p>
+    </section>
+    <!-- InstanceEndEditable -->
+</main>
+<script src="../../js/jquery.min.js"></script>
+<script src="../../js/les.js"></script>
+<!-- InstanceBeginEditable name="script" -->
+<script>
+    eval(function(p,a,c,k,e,r){e=function(c){return c.toString(a)};if(!''.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('$(0(){9(0(){5 a=c 4();$(\'#1 2\').7(a.8())},j);$(\'#b\').3(0(e){$(\'#1 2\').d(\'f-g\',$(h).i()+\'6\')}).3()});',20,20,'function|klok|p|change|Date|var|rem|text|toLocaleTimeString|setInterval||fontSize|new|css||font|size|this|val|1000'.split('|'),0,{}))
+</script>
+<!-- InstanceEndEditable -->
+</body>
+<!-- InstanceEnd --></html>

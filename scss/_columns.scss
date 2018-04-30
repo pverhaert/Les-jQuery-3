@@ -1,0 +1,47 @@
+@mixin column($nr) {
+  $width : 960px / $nr;
+  padding: $base-pading/2;
+  columns: $width $nr;
+  column-rule: 1px solid $gray;
+  border: 1px solid $gray;
+}
+
+.columns-2 {
+  @include column(2);
+  &-center {
+    @include column(2);
+    text-align: center;
+  }
+}
+
+.columns-3 {
+  @include column(3);
+  &-center {
+    @include column(3);
+    text-align: center;
+  }
+}
+
+.columns-4 {
+  @include column(4);
+  &-center {
+    @include column(4);
+    text-align: center;
+  }
+}
+
+.columns-5 {
+  @include column(5);
+  &-center {
+    @include column(5);
+    text-align: center;
+  }
+}
+
+.columns-10 {
+  @include column(10);
+  &-center {
+    @include column(10);
+    text-align: center;
+  }
+}

@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="nl"><!-- InstanceBegin template="/Templates/jQuery.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- InstanceBeginEditable name="doctitle" -->
+    <title>jQuery: Bloemen masterpage</title>
+    <!-- InstanceEndEditable -->
+    <link href="../css/style.css" rel="stylesheet">
+    <!-- InstanceBeginEditable name="head" -->
+    <style>
+        #master {
+            display: flex;
+        }
+
+        #master li {
+            list-style: none;
+            margin: 5px;
+        }
+
+        #master img {
+            border: solid 1px black;
+        }
+
+        .foto {
+            float: right;
+            margin: 0 10px;
+            border: solid 1px lightGrey;
+            padding: 3px;
+            box-shadow: 3px 3px 3px rgba(51, 51, 51, .7);
+        }
+    </style>
+    <!-- InstanceEndEditable -->
+</head>
+<body>
+<div class="background-dark">
+    <header class="container">
+        <nav id="mainNav">
+            <ul>
+                <li><a href="../../index.html"><i class="fa fa-home"></i> Homepage</a></li>
+                <li><a href="../../opdrachten/index.html"><i class="fa fa-th-list"></i> Opdrachten</a></li>
+                <li><a href="https://oscarotero.com/jquery/"><i class="fa fa-eye"></i> Cheat sheet</a></li>
+            </ul>
+            <ul>
+                <li><a href="#!"></a></li>
+            </ul>
+        </nav>
+    </header>
+</div>
+<main class="container"> <!-- InstanceBeginEditable name="data" -->
+    <h1>Bloemen <span>(masterpage)</span></h1>
+    <ul id="master" class="subNav">
+        <li><a href="bloemenDetail.php?id=1"><img src="../assets/fotos/thumb_anjer.jpg" alt="Anjer"></a></li>
+        <li><a href="bloemenDetail.php?id=2"><img src="../assets/fotos/thumb_lelie.jpg" alt="Lelie"></a></li>
+        <li><a href="bloemenDetail.php?id=3"><img src="../assets/fotos/thumb_narcis.jpg" alt="Narcis"></a></li>
+        <li><a href="bloemenDetail.php?id=4"><img src="../assets/fotos/thumb_roos.jpg" alt="Roos"></a></li>
+        <li><a href="bloemenDetail.php?id=5"><img src="../assets/fotos/thumb_tulp.jpg" alt="Tulp"></a></li>
+        <li><a href="bloemenDetail.php?id=100"><img src="https://picsum.photos/100/100" alt="Foutief id"></a></li>
+    </ul>
+    <section id="detail"></section>
+    <!-- InstanceEndEditable -->
+</main>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/les.js"></script>
+<!-- InstanceBeginEditable name="script" -->
+<script>
+    $(function () {
+        // Wijzig selector van $('#_ a') naar $('#master a')
+        $('#_ a').click(function (e) {
+            e.preventDefault();
+            var url = $(this).attr('href');
+            $('#detail').load(url + ' #bloemInfo', function () {
+                // $('#bloemInfo p:first').remove();  // Verwijder link 'vorige pagina'
+            });
+        });
+    });
+</script>
+<!-- InstanceEndEditable -->
+</body>
+<!-- InstanceEnd --></html>

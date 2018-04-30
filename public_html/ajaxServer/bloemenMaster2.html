@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="nl"><!-- InstanceBegin template="/Templates/jQuery.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- InstanceBeginEditable name="doctitle" -->
+    <title>jQuery: Bloemen masterpage</title>
+    <!-- InstanceEndEditable -->
+    <link href="../css/style.css" rel="stylesheet">
+    <!-- InstanceBeginEditable name="head" -->
+    <style>
+        .foto {
+            float: right;
+            margin: 0 10px;
+            border: solid 1px lightGrey;
+            padding: 3px;
+            box-shadow: 3px 3px 3px rgba(51, 51, 51, .7);
+        }
+    </style>
+    <!-- InstanceEndEditable -->
+</head>
+<body>
+<div class="background-dark">
+    <header class="container">
+        <nav id="mainNav">
+            <ul>
+                <li><a href="../../index.html"><i class="fa fa-home"></i> Homepage</a></li>
+                <li><a href="../../opdrachten/index.html"><i class="fa fa-th-list"></i> Opdrachten</a></li>
+                <li><a href="https://oscarotero.com/jquery/"><i class="fa fa-eye"></i> Cheat sheet</a></li>
+            </ul>
+            <ul>
+                <li><a href="#!"></a></li>
+            </ul>
+        </nav>
+    </header>
+</div>
+<main class="container"> <!-- InstanceBeginEditable name="data" -->
+    <h1>Bloemen <span>(masterpage)</span></h1>
+    <section id="master">
+        <form name="form" id="form" method="get" action="bloemenDetail.php">
+            <label for="id">Kies een bloem:</label>
+            <div class="select">
+                <select name="id" id="id">
+                    <option value="1" selected>Anjer</option>
+                    <option value="2">Lelie</option>
+                    <option value="3">Narcis</option>
+                    <option value="4">Roos</option>
+                    <option value="5">Tulp</option>
+                    <option value="100">Dummy</option>
+                </select>
+                <i class="fa fa-angle-down fa-2"></i>
+            </div>
+            <input class="button" type="submit" id="submit" value="Submit">
+        </form>
+    </section>
+    <p>&nbsp;</p>
+    <section id="detail"></section>
+    <!-- InstanceEndEditable -->
+</main>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/les.js"></script>
+<!-- InstanceBeginEditable name="script" -->
+<script>
+    $(function () {
+        $('#form').submit(function (e) {
+            e.preventDefault();
+            var str = $('#id').serialize();
+            $.get('bloemenDetail.php', str, function (data) {
+                $('#detail').html($(data).find('#bloemInfo'));
+                $('#bloemInfo p:first').remove();
+            }, 'html');
+        });
+
+        $('#id').change(function () {
+            $('#form').submit();
+        });
+        $('#form').submit();
+    });
+</script>
+<!-- InstanceEndEditable -->
+</body>
+<!-- InstanceEnd --></html>

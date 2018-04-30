@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="nl"><!-- InstanceBegin template="/Templates/jQuery.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- InstanceBeginEditable name="doctitle" -->
+    <title>HTML attributen</title>
+    <!-- InstanceEndEditable -->
+    <link href="../css/style.css" rel="stylesheet">
+    <!-- InstanceBeginEditable name="head" -->
+    <style>
+        .orange {
+            background-color: orange;
+        }
+    </style>
+    <!-- InstanceEndEditable -->
+</head>
+<body>
+<div class="background-dark">
+    <header class="container">
+        <nav id="mainNav">
+            <ul>
+                <li><a href="../../index.html"><i class="fa fa-home"></i> Homepage</a></li>
+                <li><a href="../../opdrachten/index.html"><i class="fa fa-th-list"></i> Opdrachten</a></li>
+                <li><a href="https://oscarotero.com/jquery/"><i class="fa fa-eye"></i> Cheat sheet</a></li>
+            </ul>
+            <ul>
+                <li><a href="#!"></a></li>
+            </ul>
+        </nav>
+    </header>
+</div>
+<main class="container"> <!-- InstanceBeginEditable name="data" -->
+    <h1>HTML attributen</h1>
+    <section id="sect1">
+        <h2>HTML attribuut: attr() en removeAttr() methodes</h2>
+        <p>
+            <input class="button" type="button" id="attr1" value="attr('title, ...')">
+            <input class="button" type="button" id="attr2" value="removeAttr('title')">
+        </p>
+        <ul>
+            <li><a href="http://www.jquery.com/">http://www.jquery.com/</a></li>
+            <li><a href="http://www.jquerymobile.com/">http://www.jquerymobile.com/</a></li>
+            <li><a href="http://api.jquery.com/">http://api.jquery.com/</a></li>
+            <li><a href="../index.html">homepage</a></li>
+        </ul>
+    </section>
+    <section id="sect2">
+        <h2>CSS attribuut: css() methode</h2>
+        <ul>
+            <li><a href="http://www.jquery.com/">http://www.jquery.com/</a></li>
+            <li><a href="http://www.jquerymobile.com/">http://www.jquerymobile.com/</a></li>
+            <li><a href="http://api.jquery.com/">http://api.jquery.com/</a></li>
+            <li><a href="../index.html">homepage</a></li>
+        </ul>
+    </section>
+    <section id="sect3">
+        <h2>Class attribuut: addClass(), removeClass(), toggleClass() en hasClass() methodes</h2>
+        <p>
+            <input class="button" type="button" id="orange1" value="addClass('orange')">
+            <input class="button" type="button" id="orange2" value="removeClass('orange')">
+            <input class="button" type="button" id="orange3" value="toggleClass('orange')">
+            <input class="button" type="button" id="orange4" value="hasClass('orange')">
+        </p>
+        <ul>
+            <li><a href="http://www.jquery.com/">http://www.jquery.com/</a></li>
+            <li><a href="http://www.jquerymobile.com/">http://www.jquerymobile.com/</a></li>
+            <li><a href="http://api.jquery.com/">http://api.jquery.com/</a></li>
+            <li><a href="../index.html">homepage</a></li>
+        </ul>
+    </section>
+
+    <!-- InstanceEndEditable -->
+</main>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/les.js"></script>
+<!-- InstanceBeginEditable name="script" -->
+<script>
+    $(function () {
+        // Voeg title-attribuut toe aan links
+        $('#attr1').click(function () {
+            $('#sect1 a').each(function (index, element) {
+                //$(this).attr('title', $(this).attr('href'));
+                $(this).filter('a[href^="http://"]').attr('title', 'Externe link naar: ' + $(this).attr('href') );
+            });
+        });
+        $('#attr2').click(function () {
+            $('#sect1 a').removeAttr('title');
+        });
+
+        $('#sect2 a').css('text-decoration', 'underline').css('color', 'green');
+
+        $('#orange1').click(function () {
+            $('#sect3 ul').addClass('orange');
+        });
+        $('#orange2').click(function () {
+            $('#sect3 ul').removeClass('orange');
+        });
+        $('#orange3').click(function () {
+            $('#sect3 ul').toggleClass('orange');
+        });
+        $('#orange4').click(function () {
+            if ($('#sect3 ul').hasClass('orange')) {
+                alert('De lijst heeft een oranje achtergrond');
+            } else {
+                alert('De lijst heeft een witte achtergrond');
+            }
+        });
+    });
+</script>
+<!-- InstanceEndEditable -->
+</body>
+<!-- InstanceEnd --></html>

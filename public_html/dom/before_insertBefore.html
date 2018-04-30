@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="nl"><!-- InstanceBegin template="/Templates/jQuery.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- InstanceBeginEditable name="doctitle" -->
+    <title>Insert vs create</title>
+    <!-- InstanceEndEditable -->
+    <link href="../css/style.css" rel="stylesheet">
+    <!-- InstanceBeginEditable name="head" -->
+    <style>
+        .rood {
+            border: solid 3px red;
+            padding: 5px;
+            float: right;
+        }
+    </style>
+    <!-- InstanceEndEditable -->
+</head>
+<body>
+<div class="background-dark">
+    <header class="container">
+        <nav id="mainNav">
+            <ul>
+                <li><a href="../../index.html"><i class="fa fa-home"></i> Homepage</a></li>
+                <li><a href="../../opdrachten/index.html"><i class="fa fa-th-list"></i> Opdrachten</a></li>
+                <li><a href="https://oscarotero.com/jquery/"><i class="fa fa-eye"></i> Cheat sheet</a></li>
+            </ul>
+            <ul>
+                <li><a href="#!"></a></li>
+            </ul>
+        </nav>
+    </header>
+</div>
+<main class="container"> <!-- InstanceBeginEditable name="data" -->
+    <h1>before() vs insertBefore()</h1>
+    <section id="sect1">
+        <h2>before()</h2>
+        <p>Ut enim ad minim veniam, duis aute irure dolor velit esse cillum dolore. In reprehenderit in voluptate sed do
+            eiusmod tempor incididunt excepteur sint occaecat. Cupidatat non proident, consectetur adipisicing elit,
+            lorem ipsum dolor sit amet. Ut enim ad minim veniam, eu fugiat nulla pariatur. Mollit anim id est
+            laborum.</p>
+        <p>Sed do eiusmod tempor incididunt qui officia deserunt quis nostrud exercitation. In reprehenderit in
+            voluptate ut labore et dolore magna aliqua. Eu fugiat nulla pariatur.</p>
+    </section>
+    <section id="sect2">
+        <h2>insertBefore()</h2>
+        <p>Lorem ipsum dolor sit amet, velit esse cillum dolore consectetur adipisicing elit. Duis aute irure dolor ut
+            enim ad minim veniam, mollit anim id est laborum. Ut aliquip ex ea commodo consequat. Velit esse cillum
+            dolore sunt in culpa quis nostrud exercitation.</p>
+        <p>In reprehenderit in voluptate excepteur sint occaecat duis aute irure dolor. Ut enim ad minim veniam, ut
+            labore et dolore magna aliqua. Cupidatat non proident, sed do eiusmod tempor incididunt. Consectetur
+            adipisicing elit, lorem ipsum dolor sit amet, ut labore et dolore magna aliqua. In reprehenderit in
+            voluptate cupidatat non proident, excepteur sint occaecat.</p>
+    </section>
+
+    <!-- InstanceEndEditable -->
+</main>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/les.js"></script>
+<!-- InstanceBeginEditable name="script" -->
+<script>
+    $(function () {
+        // before()
+        // $('#sect1 p:first').before('<img src="../assets/fotos/thumb_tulp.jpg">');
+        // $('#sect1 p:first').addClass('rood').before('<img src="../assets/fotos/thumb_tulp.jpg">');
+        $('#sect1 p:first').before('<img src="../assets/fotos/thumb_tulp.jpg">');
+        $('#sect1 img:first').addClass('rood');
+
+        // insertBefore()
+        // $('<img src="../assets/fotos/thumb_tulp.jpg">').insertBefore('#sect2 p:first');
+        $('<img src="../assets/fotos/thumb_tulp.jpg">').addClass('rood').insertBefore('#sect2 p:first');
+    });
+</script>
+<!-- InstanceEndEditable -->
+</body>
+<!-- InstanceEnd --></html>

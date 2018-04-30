@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="nl"><!-- InstanceBegin template="/Templates/jQuery.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- InstanceBeginEditable name="doctitle" -->
+    <title>not() methode</title>
+    <!-- InstanceEndEditable -->
+    <link href="../css/style.css" rel="stylesheet">
+    <!-- InstanceBeginEditable name="head" -->
+    <!-- InstanceEndEditable -->
+</head>
+<body>
+<div class="background-dark">
+    <header class="container">
+        <nav id="mainNav">
+            <ul>
+                <li><a href="../../index.html"><i class="fa fa-home"></i> Homepage</a></li>
+                <li><a href="../../opdrachten/index.html"><i class="fa fa-th-list"></i> Opdrachten</a></li>
+                <li><a href="https://oscarotero.com/jquery/"><i class="fa fa-eye"></i> Cheat sheet</a></li>
+            </ul>
+            <ul>
+                <li><a href="#!"></a></li>
+            </ul>
+        </nav>
+    </header>
+</div>
+<main class="container"> <!-- InstanceBeginEditable name="data" -->
+    <h1>not() methode</h1>
+        <p>
+            <input class="button" type="button" id="not1" value=".not(':first')">
+            <input class="button" type="button" id="not2" value=".not(':last')">
+            <input class="button" type="button" id="not3" value=".not(':eq(3)')">
+            <input class="button" type="button" id="not4" value=".not('#theItem')">
+            <input class="button" type="button" id="not5" value=".not(function(){...})">
+        </p>
+    <section>
+        <h2>Lijst 1</h2>
+        <ul>
+            <li>item 0: Ullamco laboris nisi quis nostrud exercitation</li>
+            <li>item 1: ut aliquip ex ea commodo consequat</li>
+            <li>item 2: Sunt in culpa cupidatat non proident, eu fugiat nulla pariatur</li>
+            <li>item 3: Lorem ipsum dolor sit amet, in reprehenderit in voluptate ut enim ad minim veniam</li>
+            <li>item 4: Ut aliquip ex ea commodo consequat.</li>
+            <li id="theItem">item 5: Phasellus ut ante eget eros tempor laoreet.</li>
+            <li>item 6: Maecenas porttitor sem non nulla pulvinar a mattis urna pharetra.</li>
+            <li>item 7: Phasellus at erat dolor, eu dignissim ante.</li>
+        </ul>
+    </section>
+    <!-- InstanceEndEditable -->
+</main>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/les.js"></script>
+<!-- InstanceBeginEditable name="script" -->
+<script>
+    $(function () {
+        // Knop1
+        $('#not1').click(function () {
+            $('*').removeClass('highLight');
+            $('main li').not(':first').addClass('highLight');
+        });
+        // Knop2
+        $('#not2').click(function () {
+            $('*').removeClass('highLight');
+            $('main li').not(':last').addClass('highLight');
+        });
+        // Knop3
+        $('#not3').click(function () {
+            $('*').removeClass('highLight');
+            $('main li').not(':eq(3)').addClass('highLight');
+        });
+        // Knop4
+        $('#not4').click(function () {
+            $('*').removeClass('highLight');
+            $('main li').not('#theItem').addClass('highLight');
+        });
+        // Knop5
+        $('#not5').click(function () {
+            $('*').removeClass('highLight');
+            $('main li').not(function (index) {
+                if ((index % 3) == 0) {
+                    return true;
+                }
+            }).addClass('highLight');
+        });
+    });
+</script>
+<!-- InstanceEndEditable -->
+</body>
+<!-- InstanceEnd --></html>

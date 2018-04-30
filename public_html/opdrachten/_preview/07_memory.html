@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="nl"><!-- InstanceBegin template="/Templates/jQuery.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- InstanceBeginEditable name="doctitle" -->
+    <title>Memory Spel</title>
+    <!-- InstanceEndEditable -->
+    <link href="../../css/style.css" rel="stylesheet">
+    <!-- InstanceBeginEditable name="head" -->
+    <style>
+        #memory {
+            list-style: none;
+        }
+
+        #memory li {
+            margin: 5px;
+            color: #900;
+            background-color: #CEFE9E;
+            font-size: 72px;
+            line-height: 80px;
+            width: 120px;
+            display: inline-block;
+            text-align: center;
+            text-shadow: 2px 2px 2px rgba(51, 51, 51, .7);
+            position: relative;
+            cursor: pointer;
+            border: solid 1px black;
+            box-shadow: 5px 5px 5px rgba(0, 0, 0, .7);
+        }
+
+        #memory li span {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 100;
+            background-color: #F30;
+        }
+
+        .fout {
+            background-color: #FFF18C !important;
+        }
+    </style>
+    <!-- InstanceEndEditable -->
+</head>
+<body>
+<div class="background-dark">
+    <header class="container">
+        <nav id="mainNav">
+            <ul>
+                <li><a href="../../../index.html"><i class="fa fa-home"></i> Homepage</a></li>
+                <li><a href="../../../opdrachten/index.html"><i class="fa fa-th-list"></i> Opdrachten</a></li>
+                <li><a href="https://oscarotero.com/jquery/"><i class="fa fa-eye"></i> Cheat sheet</a></li>
+            </ul>
+            <ul>
+                <li><a href="#!"></a></li>
+            </ul>
+        </nav>
+    </header>
+</div>
+<main class="container"> <!-- InstanceBeginEditable name="data" -->
+    <h1>Memory Spel</h1>
+    <section>
+        <h3>Deze code staat reeds op de pagina</h3>
+        <ul>
+            <li>De globale variabelen (<b>kliks</b>, <b>kaart1</b>, <b>kaart1txt</b>, <b>kaart2</b> en <b>kaart2txt</b>)
+                worden verder in het spel gebruikt. De variabele <b>sym</b> bevat 24 symbolen met Unicode tekens (meer
+                info: <a href="http://character-code.com/">http://character-code.com/</a>).
+            </li>
+            <li> De functie<b> resetSpel()</b> schudt via de functie <b>shuffle(arr)</b> de symbolen door elkaar.
+                Vervolgens komt elk symbool als tekst in een li-tag van <b>ul#memory</b> tevoorschijn, wordt de class
+                <b>.goed</b> op de li-tag geplaatst en wordt achteraan de li-tag een span-tag toegevoegd. Bijvoorbeeld:
+                <b>&lt;li class="fout"&gt;☎&lt;span&gt;&lt;/span&gt;&lt;/li&gt; </b><br>
+            </li>
+        </ul>
+        <h3>Zelf te schrijven code</h3>
+        <p><b>Bij elke klik:</b></p>
+        <ul>
+            <li>Verhoog de variabele <b>kliks</b> bij elke klik op een li-tag.</li>
+            <li>Toon het symbool in de li-tag door de span-tag open te schuiven.</li>
+        </ul>
+        <p><b>Bij elke oneven klik (1, 3, 5, ...):</b></p>
+        <ul>
+            <li>Plaats de <b>inhoud</b> van de li-tag in de variabele <b>kaart1txt</b>.</li>
+            <li>Plaats de <a href="http://api.jquery.com/index/"><b>index</b></a> van de geklikte li-tag in
+                <b>kaart1</b>.
+            </li>
+        </ul>
+        <p><b>Bij elke even klik (2, 4, 6, ...):</b></p>
+        <ul>
+            <li>Plaats de <b>inhoud</b> van de li-tag in de variabele <b>kaart2txt</b>.</li>
+            <li>Plaats de <b>index</b> van de geklikte li-tag in <b>kaart2</b>.</li>
+            <li>Indien <b>kaart1txt</b> is <b>gelijk</b> aan <b>kaart2txt</b>, wis dan voor beide li-tags de class <b>.fout</b>
+                en verwijder met de methode <a href="http://api.jquery.com/remove/">remove()</a> de ingebedde span-tags.
+                Het symbool blijft nu zichtbaar en krijgt een lichtgroene achtergrond.
+            </li>
+            <li>Indien <b>kaart1txt</b> is <b>niet gelijk</b> aan <b>kaart2txt,</b> wacht dan één seconde en schuif
+                beide span-tags terug dicht.
+            </li>
+        </ul>
+    </section>
+    <p>
+        <button class="button" id="reset">reset spel</button>
+    </p>
+    <ul id="memory">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <!-- InstanceEndEditable -->
+</main>
+<script src="../../js/jquery.min.js"></script>
+<script src="../../js/les.js"></script>
+<!-- InstanceBeginEditable name="script" -->
+<script>
+    $(function () {
+        var kliks = 0;
+        var kaart1, kaart1txt, kaart2, kaart2txt;
+        var sym = ['&#9742;', '&#9733;', '&#9990;', '&#9770;', '&#9881;', '&#9993;', '&#22871;', '&#9999;', '&#9998;', '&#10016;', '&#10010;', '&#10003;'];
+        sym = sym.concat(sym);
+        resetSpel();
+
+        $('#memory').on('click', 'li.fout', function (e) {
+            // Enkel uitvoeren indien men op een zichtbare(oranje) span-tag klikt EN indien er tijdens de klik GEEN span-tag beweegt
+            eval(function(p,a,c,k,e,r){e=function(c){return c.toString(a)};if(!''.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('5($(1).6(\'3\').f(\':j\')&&!($(\'3\').f(\':i\'))){9++;$(1).6(\'3\').h();5(9%2==0){d=$(\'4\').e(1);c=$(1).b();5(a==c){$(\'4:8(\'+7+\'), 4:8(\'+d+\')\').k(\'g\').6(\'3\').l()}m(n(){$(\'4 3\').o()},p)}q{7=$(\'4\').e(1);a=$(1).b()}}',27,27,'|this||span|li|if|find|kaart1|eq|kliks|kaart1txt|text|kaart2txt|kaart2|index|is|fout|slideUp|animated|visible|removeClass|remove|setTimeout|function|slideDown|1000|else'.split('|'),0,{}))
+        });
+
+        $('#reset').click(function (e) {
+            resetSpel();
+        });
+
+        // Herstart het spel
+        function resetSpel() {
+            kliks = 0;
+            kaart1, kaart1txt, kaart2, kaart2txt = '';
+            shuffle(sym);
+            $('#memory li').html('');
+            for (var i = 0; i <= sym.length - 1; i++) {
+                $('#memory li:eq(' + i + ')').html(sym[i]);
+            }
+            $('#memory li').addClass('fout').append('<span></span>');
+        }
+
+        // Schud de array door elkaar
+        function shuffle(arr) {
+            var i = arr.length;
+            while (--i) {
+                var j = Math.floor(Math.random() * (i + 1));
+                var tempi = arr[i];
+                var tempj = arr[j];
+                arr[i] = tempj;
+                arr[j] = tempi;
+            }
+        }
+    });
+</script>
+<!-- InstanceEndEditable -->
+</body>
+<!-- InstanceEnd --></html>

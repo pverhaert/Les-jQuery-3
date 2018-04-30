@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="nl"><!-- InstanceBegin template="/Templates/jQuery.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- InstanceBeginEditable name="doctitle" -->
+    <title>If-Else</title>
+    <!-- InstanceEndEditable -->
+    <link href="../css/style.css" rel="stylesheet">
+    <!-- InstanceBeginEditable name="head" -->
+    <style>
+        .green {
+            background-color: lightGreen;
+        }
+
+        .orange {
+            background-color: orange;
+        }
+        #section2 {
+            padding: 5px;
+        }
+    </style>
+    <!-- InstanceEndEditable -->
+</head>
+<body>
+<div class="background-dark">
+    <header class="container">
+        <nav id="mainNav">
+            <ul>
+                <li><a href="../../index.html"><i class="fa fa-home"></i> Homepage</a></li>
+                <li><a href="../../opdrachten/index.html"><i class="fa fa-th-list"></i> Opdrachten</a></li>
+                <li><a href="https://oscarotero.com/jquery/"><i class="fa fa-eye"></i> Cheat sheet</a></li>
+            </ul>
+            <ul>
+                <li><a href="#!"></a></li>
+            </ul>
+        </nav>
+    </header>
+</div>
+<main class="container"> <!-- InstanceBeginEditable name="data" -->
+    <h1>If-Else met gekleurde achtergrond</h1>
+    <section>
+        <ul>
+            <li>Maak twee nieuwe classes aan (<em><b>green</b></em> en <em><b>orange</b></em>).</li>
+            <li>Indien het getal <b>even</b> is, kleurt de achtergrond van de section-tag
+                <em><b>groen</b></em>.<br>
+                Voor een <b>oneven</b> getal is de achtergrond <em><b>oranje</b></em>.<br>
+                Gebruik hiervoor de
+                jQuery methodes <a href="http://api.jquery.com/addclass/">addClass()</a> en <a
+                        href="http://api.jquery.com/removeclass/">removeClass()</a>.
+            </li>
+        </ul>
+    </section>
+    <section id="section2">
+        <h2>Test even/oneven getal</h2>
+        <label for="getal">Getal: </label>
+        <div class="input">
+            <input type="number" id="getal">
+        </div>
+        <span id="resultaat"></span>
+    </section>
+    <!-- InstanceEndEditable -->
+</main>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/les.js"></script>
+<!-- InstanceBeginEditable name="script" -->
+<script>
+    $(function () {
+        $('#getal').keyup(function () {
+            //
+        });
+    });
+</script>
+<!-- InstanceEndEditable -->
+</body>
+<!-- InstanceEnd --></html>

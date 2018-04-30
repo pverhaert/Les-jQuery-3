@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="nl"><!-- InstanceBegin template="/Templates/jQuery.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- InstanceBeginEditable name="doctitle" -->
+    <title>Spotlight</title>
+    <!-- InstanceEndEditable -->
+    <link href="../../css/style.css" rel="stylesheet">
+    <!-- InstanceBeginEditable name="head" -->
+    <style>
+        #spotContainer {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 0;
+        }
+
+        #spotContainer li {
+            list-style: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        #spotContainer li img {
+            border: 3px solid transparent;
+        }
+
+        .activePhoto {
+            border: 3px solid white !important;
+        }
+    </style>
+    <!-- InstanceEndEditable -->
+</head>
+<body>
+<div class="background-dark">
+    <header class="container">
+        <nav id="mainNav">
+            <ul>
+                <li><a href="../../../index.html"><i class="fa fa-home"></i> Homepage</a></li>
+                <li><a href="../../../opdrachten/index.html"><i class="fa fa-th-list"></i> Opdrachten</a></li>
+                <li><a href="https://oscarotero.com/jquery/"><i class="fa fa-eye"></i> Cheat sheet</a></li>
+            </ul>
+            <ul>
+                <li><a href="#!"></a></li>
+            </ul>
+        </nav>
+    </header>
+</div>
+<main class="container"> <!-- InstanceBeginEditable name="data" -->
+    <h1>Spotlight</h1>
+    <ul>
+        <li>Maak alle foto's gedeeltelijk transparant.</li>
+        <li>Maak bij het hover-effect de foto volledig zichtbaar en pas de class <b>activePhoto</b> toe.</li>
+    </ul>
+    <ul id="spotContainer" class="background-dark">
+        <li><img class="spot" src="https://picsum.photos/120/120/?1" alt=""></li>
+        <li><img class="spot" src="https://picsum.photos/120/120/?2" alt=""></li>
+        <li><img class="spot" src="https://picsum.photos/120/120/?3" alt=""></li>
+        <li><img class="spot" src="https://picsum.photos/120/120/?4" alt=""></li>
+        <li><img class="spot" src="https://picsum.photos/120/120/?5" alt=""></li>
+        <li><img class="spot" src="https://picsum.photos/120/120/?6" alt=""></li>
+        <li><img class="spot" src="https://picsum.photos/120/120/?7" alt=""></li>
+        <li><img class="spot" src="https://picsum.photos/120/120/?8" alt=""></li>
+        <li><img class="spot" src="https://picsum.photos/120/120/?9" alt=""></li>
+        <li><img class="spot" src="https://picsum.photos/120/120/?10" alt=""></li>
+        <li><img class="spot" src="https://picsum.photos/120/120/?11" alt=""></li>
+        <li><img class="spot" src="https://picsum.photos/120/120/?12" alt=""></li>
+        <li><img class="spot" src="https://picsum.photos/120/120/?13" alt=""></li>
+        <li><img class="spot" src="https://picsum.photos/120/120/?14" alt=""></li>
+        <li><img class="spot" src="https://picsum.photos/120/120/?15" alt=""></li>
+        <li><img class="spot" src="https://picsum.photos/120/120/?16" alt=""></li>
+        <li><img class="spot" src="https://picsum.photos/120/120/?17" alt=""></li>
+        <li><img class="spot" src="https://picsum.photos/120/120/?18" alt=""></li>
+        <li><img class="spot" src="https://picsum.photos/120/120/?19" alt=""></li>
+        <li><img class="spot" src="https://picsum.photos/120/120/?20" alt=""></li>
+    </ul>
+    <!-- InstanceEndEditable -->
+</main>
+<script src="../../js/jquery.min.js"></script>
+<script src="../../js/les.js"></script>
+<!-- InstanceBeginEditable name="script" -->
+<script>
+    $(function () {
+        var opacity = .4;
+        $('.spot').css('opacity', opacity);
+        $('.spot').hover(function () {
+            $(this).css('opacity', 1).addClass('activePhoto');
+        }, function () {
+            $(this).css('opacity', opacity).removeClass('activePhoto');
+        });
+    });
+</script>
+<!-- InstanceEndEditable -->
+</body>
+<!-- InstanceEnd --></html>

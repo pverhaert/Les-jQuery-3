@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="nl"><!-- InstanceBegin template="/Templates/jQuery.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- InstanceBeginEditable name="doctitle" -->
+    <title>Documentevents</title>
+    <!-- InstanceEndEditable -->
+    <link href="../css/style.css" rel="stylesheet">
+    <!-- InstanceBeginEditable name="head" -->
+    <!-- InstanceEndEditable -->
+</head>
+<body>
+<div class="background-dark">
+    <header class="container">
+        <nav id="mainNav">
+            <ul>
+                <li><a href="../../index.html"><i class="fa fa-home"></i> Homepage</a></li>
+                <li><a href="../../opdrachten/index.html"><i class="fa fa-th-list"></i> Opdrachten</a></li>
+                <li><a href="https://oscarotero.com/jquery/"><i class="fa fa-eye"></i> Cheat sheet</a></li>
+            </ul>
+            <ul>
+                <li><a href="#!"></a></li>
+            </ul>
+        </nav>
+    </header>
+</div>
+<main class="container"> <!-- InstanceBeginEditable name="data" -->
+    <h1>Documentevents</h1>
+    <p><img src="../assets/pixel.png" id="foto" alt="Foto"></p>
+    <!-- InstanceEndEditable -->
+</main>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/les.js"></script>
+<!-- InstanceBeginEditable name="script" -->
+<script>
+    window.onload = function () {
+        var imgUrl = 'https://picsum.photos/436/314';
+        document.getElementById('foto').src = imgUrl;
+        alert('window is loaded (vanilla javascript)\n' + imgUrl);
+    };
+    $(function () {
+        $('img:eq(0)').attr('src', '../assets/fotos/roos.jpg');
+        alert('document is ready (jQuery)');
+    });
+    $(window).on('load', function () {
+        $('img:eq(0)').attr('src', '../assets/fotos/tulp.jpg');
+        alert('window is loaded (jQuery)');
+    });
+    $(window).on('unload', function () {
+        alert('window is unloaded');
+    });
+</script>
+<!-- InstanceEndEditable -->
+</body>
+<!-- InstanceEnd --></html>

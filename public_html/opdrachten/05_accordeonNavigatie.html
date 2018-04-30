@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="nl"><!-- InstanceBegin template="/Templates/jQuery.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- InstanceBeginEditable name="doctitle" -->
+    <title>Accordeon navigatie</title>
+    <!-- InstanceEndEditable -->
+    <link href="../css/style.css" rel="stylesheet">
+    <!-- InstanceBeginEditable name="head" -->
+    <style>
+        #accordeon article:not(:first-child) div {
+            display: none;
+        }
+
+        .foto {
+            float: right;
+            margin: 0 10px;
+            border: solid 1px lightGrey;
+            padding: 3px;
+            box-shadow: 3px 3px 3px rgba(51, 51, 51, 1);
+        }
+    </style>
+    <!-- InstanceEndEditable -->
+</head>
+<body>
+<div class="background-dark">
+    <header class="container">
+        <nav id="mainNav">
+            <ul>
+                <li><a href="../../index.html"><i class="fa fa-home"></i> Homepage</a></li>
+                <li><a href="../../opdrachten/index.html"><i class="fa fa-th-list"></i> Opdrachten</a></li>
+                <li><a href="https://oscarotero.com/jquery/"><i class="fa fa-eye"></i> Cheat sheet</a></li>
+            </ul>
+            <ul>
+                <li><a href="#!"></a></li>
+            </ul>
+        </nav>
+    </header>
+</div>
+<main class="container"> <!-- InstanceBeginEditable name="data" -->
+    <h1>Accordeon navigatie</h1>
+    <ul>
+        <li>Elke article-tag binnen<b> #accordeon</b> heeft als child-element een div-tag en een h2-tag.<br>
+            De h2-tag
+            opent/sluit de bijhorende div-tag.
+        </li>
+        <li>Toon bij opstart enkel de div-tag<b> binnen de eerste</b> article-tag. De overige div-tags
+            zijn onzichtbaar (zie interne css).
+        </li>
+        <li>Klik op een<b> h2-tag</b> om de <b>bijhorende div-tag</b> te tonen/verbergen.</li>
+        <li>Binnen de h2-tag staat een i-tag met een <a
+                href="https://fontawesome.com/v4.7.0/icons/">FontAwesome-icoon</a>.<br>
+            Een <b>open</b> article-tag krijgt een min-icoon (class <b>fa-minus-circle)</b>. <br>
+            Een <b>gesloten</b> article-tag krijgt een plus-icoon (class <b>fa-plus-circle)</b>.
+        </li>
+        <li>Gebruik de <a href="http://api.jquery.com/slidetoggle/">slideToggle()</a> animatie.</li>
+    </ul>
+    <section id="accordeon">
+        <article class="message-bar background-gray-light">
+            <h2><i class="fa fa-plus-circle"></i> Anjer</h2>
+            <div class="data">
+                <p><img src="../../assets/fotos/thumb_anjer.jpg" width="100" height="100" alt="" class="foto">Lorem
+                    ipsum dolor sit amet, ullamco laboris nisi consectetur adipisicing elit. Sed do eiusmod tempor
+                    incididunt quis nostrud exercitation ut labore et dolore magna aliqua. Velit esse cillum dolore
+                    cupidatat non proident, qui officia deserunt.</p>
+                <p>Lorem ipsum dolor sit amet, ullamco laboris nisi consectetur adipisicing elit. Sed do eiusmod tempor
+                    incididunt quis nostrud exercitation ut labore et dolore magna aliqua. Velit esse cillum dolore
+                    cupidatat non proident, qui officia deserunt.Duis aute irure dolor mollit anim id est laborum. Eu
+                    fugiat nulla pariatur. Ut aliquip ex ea commodo consequat.</p>
+            </div>
+        </article>
+        <article class="message-bar background-gray-light">
+            <h2><i class="fa fa-plus-circle"></i> Lelie</h2>
+            <div class="data">
+                <p><img src="../../assets/fotos/thumb_lelie.jpg" width="100" height="100" alt="" class="foto">Ut aliquip
+                    ex ea commodo consequat. Quis nostrud exercitation velit esse cillum dolore duis aute irure dolor.
+                    Excepteur sint occaecat eu fugiat nulla pariatur. Ut enim ad minim veniam, in reprehenderit in
+                    voluptate sunt in culpa.</p>
+                <p>Ullamco laboris nisi quis nostrud exercitation ut labore et dolore magna aliqua. Velit esse cillum
+                    dolore sed do eiusmod tempor incididunt in reprehenderit in voluptate. Ullamco laboris nisi mollit
+                    anim id est laborum. </p>
+                <p>Lorem ipsum dolor sit amet, ullamco laboris nisi consectetur adipisicing elit. Sed do eiusmod tempor
+                    incididunt quis nostrud exercitation ut labore et dolore magna aliqua. Velit esse cillum dolore
+                    cupidatat non proident, qui officia deserunt.Duis aute irure dolor mollit anim id est laborum. Eu
+                    fugiat nulla pariatur. Ut aliquip ex ea commodo consequat.</p>
+            </div>
+        </article>
+        <article class="message-bar background-gray-light">
+            <h2><i class="fa fa-plus-circle"></i> Narcis</h2>
+            <div class="data">
+                <p><img src="../../assets/fotos/thumb_narcis.jpg" width="100" height="100" alt="" class="foto">Ullamco
+                    laboris nisi quis nostrud exercitation ut labore et dolore magna aliqua. Velit esse cillum dolore
+                    sed do eiusmod tempor incididunt in reprehenderit in voluptate. Ullamco laboris nisi mollit anim id
+                    est laborum.</p>
+                <p>Ut aliquip ex ea commodo consequat. Qui officia deserunt sunt in culpa in reprehenderit in voluptate.
+                    Duis aute irure dolor sed do eiusmod tempor incididunt ut enim ad minim veniam. Quis nostrud
+                    exercitation cupidatat non proident, sunt in culpa. </p>
+            </div>
+        </article>
+        <article class="message-bar background-gray-light">
+            <h2><i class="fa fa-plus-circle"></i> Roos</h2>
+            <div class="data">
+                <p><img src="../../assets/fotos/thumb_roos.jpg" width="100" height="100" alt="" class="foto">Sed do
+                    eiusmod tempor incididunt ut enim ad minim veniam, ut aliquip ex ea commodo consequat. Sunt in culpa
+                    consectetur adipisicing elit, excepteur sint occaecat. Eu fugiat nulla pariatur.</p>
+                <p>Duis aute irure dolor in reprehenderit in voluptate quis nostrud exercitation. Qui officia deserunt
+                    ut enim ad minim veniam, velit esse cillum dolore. Sunt in culpa ut labore et dolore magna aliqua.
+                    Cupidatat non proident, mollit anim id est laborum. Quis nostrud exercitation eu fugiat nulla
+                    pariatur.</p>
+                <p>Ut labore et dolore magna aliqua. Duis aute irure dolor ut enim ad minim veniam, velit esse cillum
+                    dolore. In reprehenderit in voluptate eu fugiat nulla pariatur. Mollit anim id est laborum.</p>
+            </div>
+        </article>
+    </section>
+    <!-- InstanceEndEditable -->
+</main>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/les.js"></script>
+<!-- InstanceBeginEditable name="script" -->
+<script>
+    $(function () {
+        // Gebruik #accordeon > article om descendant elementen uit te sluiten.
+
+        $('#accordeon h2').click(function () {
+            //
+        });
+    });
+</script>
+<!-- InstanceEndEditable -->
+</body>
+<!-- InstanceEnd --></html>

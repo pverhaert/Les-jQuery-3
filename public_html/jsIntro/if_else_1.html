@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="nl"><!-- InstanceBegin template="/Templates/jQuery.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- InstanceBeginEditable name="doctitle" -->
+    <title>If-Else</title>
+    <!-- InstanceEndEditable -->
+    <link href="../css/style.css" rel="stylesheet">
+    <!-- InstanceBeginEditable name="head" -->
+    <!-- InstanceEndEditable -->
+</head>
+<body>
+<div class="background-dark">
+    <header class="container">
+        <nav id="mainNav">
+            <ul>
+                <li><a href="../../index.html"><i class="fa fa-home"></i> Homepage</a></li>
+                <li><a href="../../opdrachten/index.html"><i class="fa fa-th-list"></i> Opdrachten</a></li>
+                <li><a href="https://oscarotero.com/jquery/"><i class="fa fa-eye"></i> Cheat sheet</a></li>
+            </ul>
+            <ul>
+                <li><a href="#!"></a></li>
+            </ul>
+        </nav>
+    </header>
+</div>
+<main class="container"> <!-- InstanceBeginEditable name="data" -->
+    <h1>If-Else</h1>
+    <section>
+        <h2>Voorbeeld 1: vaste tekst</h2>
+        <script>
+            var getal1 = 8;
+            if (getal1 > 5) {
+                document.write('<p>getal1 is groter dan 5</p>');
+            } else {
+                document.write('<p>getal1 is kleiner dan of gelijk aan 5</p>');
+            }
+        </script>
+    </section>
+    <section>
+        <h2>Voorbeeld 2: variabele tekst</h2>
+        <script>
+            if (getal1 > 5) {
+                document.write('<p>getal1 heeft de waarde ' + getal1 + ' en is groter dan 5</p>');
+            } else {
+                document.write('<p>getal1 heeft de waarde ' + getal1 + ' en is kleiner dan of gelijk aan 5</p>');
+            }
+        </script>
+    </section>
+    <section>
+        <h2>Voorbeeld 3: verkorte if-else</h2>
+        <script>
+            rest = (getal1 % 2 == 0) ? 'even' : 'oneven';
+            document.write('<p>' + getal1 + ' is  een ' + rest + ' getal</p>');
+        </script>
+    </section>
+    <!-- InstanceEndEditable -->
+</main>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/les.js"></script>
+<!-- InstanceBeginEditable name="script" -->
+<script>
+    $(function () {
+        // script hier
+    });
+</script>
+<!-- InstanceEndEditable -->
+</body>
+<!-- InstanceEnd --></html>
