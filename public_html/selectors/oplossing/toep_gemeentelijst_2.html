@@ -404,7 +404,7 @@
 <script>
     $(function () {
         // voeg data-g aan elke li-tag toe
-        $('li').each(function () {
+        $('main li').each(function () {
             $(this).attr('data-g', $(this).text().toLowerCase());
         });
         teller();
@@ -412,17 +412,17 @@
         $('#filter').keyup(function () {
             var filter = $(this).val().toLowerCase();
             if (filter != '') {
-                $('li').hide();
-                $('li[data-g*="' + filter + '"]').show();
+                $('main li').hide();
+                $('main li[data-g*="' + filter + '"]').show();
             } else {
-                $('li').show();
+                $('main li').show();
             }
             teller();
         });
 
         // tellerfunctie
         function teller() {
-            var teller = $('li:visible').length;
+            var teller = $('main li:visible').length;
             $('#zichtbaar').text(teller);
         }
 
