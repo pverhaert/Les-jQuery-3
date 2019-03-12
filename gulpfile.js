@@ -1,17 +1,19 @@
 var gulp = require('gulp');
+var browserSync = require('browser-sync').create();
 var plumber = require('gulp-plumber');
 var sass = require('gulp-sass');
 var prefix = require('gulp-autoprefixer');
-var browserSync = require('browser-sync').create();
 
 gulp.task('browser-sync', function () {
     browserSync.init({
         startPath: '/index.html',
         server: {
-            baseDir: "./public_html/",
+            baseDir: "./public_html",
             directory: true
         }
     });
+    gulp.watch('./scss/**/*.scss', gulp.series('sass'));
+    gulp.watch('./**/*.{html,css,js,php}').on('change', browserSync.reload);
 });
 
 // Copy jQuery
@@ -20,7 +22,7 @@ gulp.task('js', function () {
         .pipe(gulp.dest('./public_html/js'));
 });
 
-// Compile sass into CSS (/public_html/css_OUD/) & auto-inject into browsers
+// Compile sass into CSS (/public_html/css/) & auto-inject into browsers
 gulp.task('sass', function () {
     return gulp.src('./scss/**/*.scss')
         .pipe(plumber())
@@ -31,10 +33,4 @@ gulp.task('sass', function () {
         .pipe(browserSync.stream());
 });
 
-gulp.task('watch', function () {
-    gulp.watch('**/*.scss', {cwd: './scss/'}, ['sass']);
-    gulp.watch('**/*.{html,js,php}', {cwd: './public_html/'}, browserSync.reload);
-});
-
-gulp.task('default', ['sass', 'watch', 'browser-sync']);
-gulp.task('build', ['js']);
+gulp.task('default', gulp.series('js', 'sass', 'browser-sync'));
