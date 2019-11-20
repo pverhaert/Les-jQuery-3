@@ -1,7 +1,7 @@
 // JavaScript Document
 $(function() {
 	var codeVersie = $.fn.jquery;
-	$('#mainNav ul:last li').html('<a href="https://1itf.gitbook.io/jquery/"><i class="fa fa-github"></i> versie ' + codeVersie + '</a>');
+	$('#mainNav ul:last li').html('<a href="https://1itf.gitbook.io/jquery/"><i class="fab fa-github"></i> versie ' + codeVersie + '</a>');
 
 	// Open externe links in nieuw venster
 	$('a[href^="http://"], a[href^="https://"]').filter('a:not([target])').attr('target','_blank');
@@ -14,11 +14,11 @@ $(function() {
 	(thisAnker == 'opdrachten') ? '' : $('#mainNav a#h').attr('href', $('#mainNav a').attr('href') + '#' + thisAnker);
 		
 	// Link vorige pagina toevoegen
-	history.length > 1 ? $('#mainNav ul:first').prepend('<li><a href="javascript:;" id="hisBack"><i class="fa fa-chevron-circle-left"></i> vorige</a></li>') : null ;
+	history.length > 1 ? $('#mainNav ul:first').prepend('<li><a href="javascript:;" id="hisBack"><i class="fas fa-chevron-circle-left"></i> vorige</a></li>') : null ;
 
 	// Opdrachten in preview : links verwijderen en sluit venster toevoegen
 	if(thisPath.indexOf('_preview') > 0) {
-		$('#mainNav').html('<ul><li><a href="javascript:;" id="closeWindow"><i class="fa fa-times-circle"></i> sluit venster</a></li></ul>');
+		$('#mainNav').html('<ul><li><a href="javascript:;" id="closeWindow"><i class="fas fa-times-circle"></i> sluit venster</a></li></ul>');
 	}
 
 	$('#mainNav').on('click', '#hisBack', function(){

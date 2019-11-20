@@ -2,7 +2,7 @@
 https://github.com/sierra-library/sierra
 http://sierra-library.github.io/
 */
-@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css");
 /**
  *  VARIABLES
  *
@@ -3782,6 +3782,10 @@ ol li {
   list-style-type: decimal;
 }
 
+i.fas, i.fab {
+  margin-right: 5px;
+}
+
 mark {
   background-color: #ff9;
   color: #000;
@@ -3902,8 +3906,10 @@ input[type=range] {
 .columns-2 {
   padding: 10px;
   -webkit-columns: 480px 2;
+     -moz-columns: 480px 2;
           columns: 480px 2;
   -webkit-column-rule: 1px solid #e9e9e9;
+     -moz-column-rule: 1px solid #e9e9e9;
           column-rule: 1px solid #e9e9e9;
   border: 1px solid #e9e9e9;
 }
@@ -3911,8 +3917,10 @@ input[type=range] {
 .columns-2-center {
   padding: 10px;
   -webkit-columns: 480px 2;
+     -moz-columns: 480px 2;
           columns: 480px 2;
   -webkit-column-rule: 1px solid #e9e9e9;
+     -moz-column-rule: 1px solid #e9e9e9;
           column-rule: 1px solid #e9e9e9;
   border: 1px solid #e9e9e9;
   text-align: center;
@@ -3921,8 +3929,10 @@ input[type=range] {
 .columns-3 {
   padding: 10px;
   -webkit-columns: 320px 3;
+     -moz-columns: 320px 3;
           columns: 320px 3;
   -webkit-column-rule: 1px solid #e9e9e9;
+     -moz-column-rule: 1px solid #e9e9e9;
           column-rule: 1px solid #e9e9e9;
   border: 1px solid #e9e9e9;
 }
@@ -3930,8 +3940,10 @@ input[type=range] {
 .columns-3-center {
   padding: 10px;
   -webkit-columns: 320px 3;
+     -moz-columns: 320px 3;
           columns: 320px 3;
   -webkit-column-rule: 1px solid #e9e9e9;
+     -moz-column-rule: 1px solid #e9e9e9;
           column-rule: 1px solid #e9e9e9;
   border: 1px solid #e9e9e9;
   text-align: center;
@@ -3940,8 +3952,10 @@ input[type=range] {
 .columns-4 {
   padding: 10px;
   -webkit-columns: 240px 4;
+     -moz-columns: 240px 4;
           columns: 240px 4;
   -webkit-column-rule: 1px solid #e9e9e9;
+     -moz-column-rule: 1px solid #e9e9e9;
           column-rule: 1px solid #e9e9e9;
   border: 1px solid #e9e9e9;
 }
@@ -3949,8 +3963,10 @@ input[type=range] {
 .columns-4-center {
   padding: 10px;
   -webkit-columns: 240px 4;
+     -moz-columns: 240px 4;
           columns: 240px 4;
   -webkit-column-rule: 1px solid #e9e9e9;
+     -moz-column-rule: 1px solid #e9e9e9;
           column-rule: 1px solid #e9e9e9;
   border: 1px solid #e9e9e9;
   text-align: center;
@@ -3959,8 +3975,10 @@ input[type=range] {
 .columns-5 {
   padding: 10px;
   -webkit-columns: 192px 5;
+     -moz-columns: 192px 5;
           columns: 192px 5;
   -webkit-column-rule: 1px solid #e9e9e9;
+     -moz-column-rule: 1px solid #e9e9e9;
           column-rule: 1px solid #e9e9e9;
   border: 1px solid #e9e9e9;
 }
@@ -3968,8 +3986,10 @@ input[type=range] {
 .columns-5-center {
   padding: 10px;
   -webkit-columns: 192px 5;
+     -moz-columns: 192px 5;
           columns: 192px 5;
   -webkit-column-rule: 1px solid #e9e9e9;
+     -moz-column-rule: 1px solid #e9e9e9;
           column-rule: 1px solid #e9e9e9;
   border: 1px solid #e9e9e9;
   text-align: center;
@@ -3978,8 +3998,10 @@ input[type=range] {
 .columns-10 {
   padding: 10px;
   -webkit-columns: 96px 10;
+     -moz-columns: 96px 10;
           columns: 96px 10;
   -webkit-column-rule: 1px solid #e9e9e9;
+     -moz-column-rule: 1px solid #e9e9e9;
           column-rule: 1px solid #e9e9e9;
   border: 1px solid #e9e9e9;
 }
@@ -3987,8 +4009,10 @@ input[type=range] {
 .columns-10-center {
   padding: 10px;
   -webkit-columns: 96px 10;
+     -moz-columns: 96px 10;
           columns: 96px 10;
   -webkit-column-rule: 1px solid #e9e9e9;
+     -moz-column-rule: 1px solid #e9e9e9;
           column-rule: 1px solid #e9e9e9;
   border: 1px solid #e9e9e9;
   text-align: center;
