@@ -23,3 +23,9 @@ input[type=number] {
 input[type=range] {
   appearance: slider-horizontal;
 }
+
+// overwrite FA4 icon in sierra-library with new FA5 icon
+input[type=checkbox] + label::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: bold;
+}

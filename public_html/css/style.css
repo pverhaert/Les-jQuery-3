@@ -3893,6 +3893,11 @@ input[type=range] {
           appearance: slider-horizontal;
 }
 
+input[type=checkbox] + label::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: bold;
+}
+
 .table {
   background-color: white;
 }
