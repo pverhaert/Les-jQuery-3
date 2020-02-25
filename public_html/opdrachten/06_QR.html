@@ -29,13 +29,12 @@
 <main class="container"> <!-- InstanceBeginEditable name="data" -->
     <h1>Links met QR-code</h1>
     <ul>
-        <li>Bereken voor elke link een korte URL via <a href="http://goo.gl/">Google url shortener</a></li>
+        <li>Bereken voor elke link een korte URL via <a href="https://tiny.cc/">Tinycc</a></li>
         <li>Voeg de verkorte URL aan de a-tag toe via het<b> data-url</b> attrubuut.</li>
         <li>Lees met jQuery de short URL uit en genereer de bijbehorende QR-code. Bijvoorbeeld:<br>
-            <b>ShortURL</b> Thomas More website: <a href="http://goo.gl/sgDj5J">http://goo.gl/sgDj5J</a><br>
-            <b>QR-code</b> Thomas More website: <a href="http://goo.gl/sgDj5J.qr">http://goo.gl/sgDj5J<b>.qr</b></a>
-            (.qr toevoegen aan
-            de URL)
+            <b>ShortURL</b> Thomas More website: <a href="http://tiny.cc/hmqhkz">http://tiny.cc/hmqhkz</a><br>
+            <b>QR-code</b> Thomas More website: <a href="http://tiny.cc/hmqhkz/qr/image/L/350">http://tiny.cc/hmqhkz<b>/qr/image/L/350</b></a>
+            (<b>/qr/image/L/350</b> toevoegen aan de URL. De grootte van de afbeelding, hier 350px, kan je nog wijzigen)
         </li>
         <li>De link die de QR-code genereert is een afbeelding. Gebruik deze link als source voor de
             afbeelding <b>#QRcode</b>.
@@ -47,9 +46,9 @@
         <img src="../../assets/pixel.png" id="QRcode" alt="QR-code">
     </a>
     <ul id="links">
-        <li><a data-url="http://goo.gl/sgDj5J" href="http://www.thomasmore.be/">http://www.thomasmore.be/</a></li>
-        <li><a data-url="http://goo.gl/WHvp" href="http://jquery.com/">http://jquery.com/</a></li>
-        <li><a data-url="http://goo.gl/GBPV" href="http://jquerymobile.com/">http://jquerymobile.com/</a></li>
+        <li><a data-url="http://tiny.cc/hmqhkz" href="https://thomasmore.be">https://thomasmore.be</a></li>
+        <li><a data-url="http://tiny.cc/8vqhkz" href="https://jquery.com">https://jquery.com</a></li>
+        <li><a data-url="http://tiny.cc/iyqhkz" href="https://getbootstrap.com/">https://getbootstrap.com</a></li>
     </ul>
     <!-- InstanceEndEditable -->
 </main>

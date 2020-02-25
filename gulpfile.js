@@ -1,7 +1,7 @@
 var gulp = require('gulp');
 var browserSync = require('browser-sync').create();
 var plumber = require('gulp-plumber');
-var sass = require('gulp-sass');
+var sass = require('gulp-dart-sass');
 var prefix = require('gulp-autoprefixer');
 
 gulp.task('browser-sync', function () {
